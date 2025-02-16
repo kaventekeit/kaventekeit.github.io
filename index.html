@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="images/lorec_favicon.ico">
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: lightblue;
+      }
+      .post {
+        border-radius: 10px;
+        border: 1px solid darkblue;
+        margin: 3%;
+        padding: 3%;
+        background-color: white;
+      }
+      li {
+        margin: 0 0 3%;
+      }
+      h3 {
+        color: darkblue;
+      }
+      img {
+        margin: 1%;
+      }
+      #panini-screenshot {
+        width: 800px;
+      }
+      .blockquote {
+        color: darkgreen;
+      }
+      #dark-mode-toggle, #about-me-toggle {
+        background-color: lightgray;
+        border: 1px solid black;
+        border-radius: 50px;
+        cursor: pointer;
+        margin: 1%;
+      }
+      #dark-mode-toggle:hover, #about-me-toggle:hover {
+        background-color: white;
+      }
+      .img-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .small-img > img {
+        width: 600px;
+      }
+      .italics {
+        font-style: italic;
+      }
+      .nonitalics {
+        font-style: normal;
+      }
+      .linenote {
+        font-size: 0.75em;
+      }
+      .centertext {
+        text-align: center;
+      }
+      #about-me-toggle {
+        font-size: 0.75em;
+        line-height: 1.5em;
+     }
+      #navbar {
+        display: flex;
+        align-items: center;
+      }
+      #aboutme {
+        border: 1px solid blue;
+        margin: 3%;
+        padding: 1%;
+        border-radius: 10px;
+        background-color: white;
+      }
+      #aboutme.visible {
+        display: flex;
+      }
+      #ascii-art {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
+        align-items: center;
+        margin: 1%;
+        display: none;
+      }
+      #ascii-art > p {
+        margin: 0;
+      }
+      #description {
+        margin: 1%;
+      }
+      .hidden {
+        height: 0;
+        display: none;
+      }
+      .hidden > * {
+        height: 0;
+        margin: 0;
+        display: none;
+      }
+
+body.dark-mode {
+  background-color: teal;
+      #dark-mode-toggle {
+        background-color: black;
+        border: 1px solid lightgray;
+        color: lightgray;
+      }
+      #dark-mode-toggle:hover {
+        background-color: #2b2b2b;
+      }
+      .post {
+        border-radius: 10px;
+        border: 1px solid darkblue;
+        margin: 3%;
+        padding: 3%;
+        background-color: black;
+        color: white;
+      }
+      #aboutme {
+        border: 1px solid darkblue;
+        color: white;
+        background-color: black;
+      }
+      h3 {
+        color: lightblue;
+      }
+      h4 {
+        color: red;
+      }
+      a {
+        color: aqua;
+      }
+      .date {
+        color: gray;
+      }
+      img {
+        margin: 1%;
+      }
+      #panini-screenshot {
+        width: 800px;
+      }
+      .blockquote {
+        background-color: green;
+        padding: 1%;
+        border: 1px solid darkgreen;
+        color: white;
+      }
+      .super-blockquote {
+        background-color: #5aa66e;
+        padding: 1%;
+        border: 1px solid lightgreen;
+      }
+}
+
+    </style>
+    <div id='posts-container'>
+      <div id='navbar'>
+        <button id='dark-mode-toggle'>
+          ☀︎/☾
+        </button>
+        <button id='about-me-toggle'>
+          About Me
+        </button>
+      </div>
+      <div id='aboutme' class='hidden'>
+        <div id='ascii-art'>
+          <p>o</p>
+          <p>^</p>
+          <p>^</p>
+        </div>
+        <div id='description'>
+          <p>My name is Lorec. My government name is Mack Gallagher.</p>
+          <p>I am <a href='https://www.lesswrong.com/posts/ME7sLiwhEB6awRqJR/project-adequate-seeking-cofounders-funders' target='_blank'>aligning the AI</a>.</p>
+          <p>You can <a href='https://docs.google.com/forms/d/e/1FAIpQLSfE9Z7jh9imJ2mkffnRvnoi68MBhGFkuIltQ4KcwlM7WJaQIQ/viewform?usp=header' target='_blank'>give me anonymous feedback [including volunteering help aligning the AI] here</a>.</p> </div>
+      </div>
+      <div class='post' id='how-the-quantum-gravity-plot-hole-was-seemingly-opened-what-is-heat-in-terms-of-state-space-time-and-note-that-i-dont-really-understand-mesa-optimization-or-desperately-trying-to-avoid-repeating-einsteins-mistakes-while-at-the-same-time-hopefully-fixing-them-using-principles-stolen-from-him'>
+        <p>[ February 16, 2025 ]</p>
+        <h3>How The Quantum Gravity Plot Hole was [Seemingly] Opened, What is Heat in Terms of [State] Space[time], and Note That I Don't Really Understand Mesa-Optimization, or: Desperately Trying to Avoid Repeating Einstein's Mistakes While at the Same Time Hopefully Fixing Them, Using Principles Stolen From Him</h3>
+        <p>I'm not sure how obvious/tired - or, conversely, how high-context and requiring-more-explanation - most people take these propositions to be, so thank you for bearing with me.</p>
+        <p>Also, I could be straight-up misunderstanding any of this; if you know this stuff, and something I'm saying seems just wrong, it probably is; feel free to tell me.</p>
+        <p>Probability being all-in-the-map means entropy/heat has to be made out of something other than fundamental randomness [ let "fundamental randomness" be "something chosen from a set without any external-reality-entangled chain of causality internal to the choice" ].</p>
+        <p>In a podcast episode from either '24, or earlier, which I listened to in October of '24 [ I think it was <a href='https://www.youtube.com/watch?v=T0s_H9c2O28'>this one</a>? ] I heard Stephen Wolfram refer to the weirdness of black holes as a necessary result of the quantization-[of space? not sure]-<span class='italics'>and-temporal-parallelism</span> of "the Ruliad". And I thought, basically, "yes, it's something like that". [ At least, I think he was referring cryptically to temporal parallelism ]. Because I had been thinking, it would make sense to me if black holes came from parallelism [although I hadn't been thinking of it that way] specifically in the way that events within a black hole become so dependent on the results of Reality's <span class='italics'>depth search into its own past</span> to compute future events within the black hole, compatibly with the simultaneity formed by its boundary [?], that the rate of events within a black hole slows to a stop. Because "thermodynamics" doesn't allow you to <span class='italics'>know</span> that much about the past [or even present], right? Thus black holes could constitute quasi-causal "arrows into the past" - which are foreshortened to length ~0 by the "arrow of time" flowing the other way.</p>
+        <p>I feel like this concept makes enough sense on a high level and <span class='italics'>could</span> in some sense, be true [not that I would have any idea how to begin trying to validity-check it with experimental predictions].</p>
+        <p>But the question still remains of <span class='italics'>where exactly this temporal parallelism stuff comes in</span>? and why are there no converse white holes, or "arrows into the future"? This seems connected to the question of why we only seem to be able to increase this 'entropy' stuff over time, despite the fact that - as Max Planck seems to have been aware, as I'll get to in a second - while entropy seems to make sense as a <span class='italics'>self-justifying</span> attractor if you assume state space is unbounded, it doesn't work with anything else unless you assume it's bounded. Seems ?equivalent?-ish? to the question "why is there an arrow of time at all?" [we usually distinguish the future by saying it's the direction along which entropy increases, IIUC.]</p>
+        <p>I've been <a href='#schrodinger-oops-and-my-true-objection'>trying</a> to <a href='#schrodinger-saga-a-hedge-explained'>figure out</a> what exactly went down in the history of quantum theory, such that Schrodinger & co. ended up with a theory [ "the wavefunction" ] which correctly predicts orbital shapes, but is seemingly based on several questionable assumptions, including a stat-mech assumption.</p>
+        <p>Over the last few days I've gathered that the research environment in quantum physics in the 1920s was strikingly analogous to the research environment in AI in the 2020s - very facially fast-paced and competitive, but very conceptually shallow, seemingly aimed more at producing curve-fitting models to order than at producing understanding. I read that Heisenberg's <a href='https://en.wikipedia.org/wiki/Umdeutung_paper'>Umdeutung paper</a> [ the original formulation of proto-Schrodinger 'matrix mechanics' ] is described as "magical" [ Wikipedia: "By means of an intense series of mathematical analogies that some physicists have termed "magical", Heisenberg wrote out an equation that is the quantum mechanical analog for the classical computation of intensities:", "<a href='https://arxiv.org/abs/quant-ph/0404009'>Understanding Heisenberg's 'Magical' Paper of July 1925: a New Look at the Calculational Details</a>": "This epoch-making paper is generally regarded as being difficult to follow, perhaps partly because Heisenberg provided few clues as to how he arrived at the results which he reported." ]. I went and looked at the actual paper itself, the English translation of it that's printed in van der Waerden et al.'s <span class='italics'>Sources of Quantum Mechanics</span>, and found nothing to contradict that sense. I read that Schrodinger subsequently proved his and Heisenberg's formulations were equivalent. [ How? It is never specified, so I don't know. ] <a href='https://en.wikipedia.org/wiki/History_of_quantum_mechanics'>I read</a> that Schrodinger gave little shrift to the proposition that <span class='italics'>time</span> could be discretized [ Wikipedia: "Heisenberg accepted the theoretical prediction of jumps of electrons between orbitals in an atom, but Schrodinger hoped that a theory based on continuous wave-like properties could avoid what he called [as paraphrased by Wilhelm Wien] "this nonsense about quantum jumps". In the end, Heisenberg's approach won out, and quantum jumps were confirmed." ] - or that <span class='italics'>discrete state transitions</span> could occur - despite Heisenberg seemingly understanding, apart from his "further-along" colleague - and in a way that was borne out by reality - that this [ discrete state transitions ] was only to be expected of a <span class='italics'>quantum</span> physical theory.</p>
+        <p>I decided to step back further, into the Planck-and-Einstein era of quantum theory, to hopefully understand better the human-graspable conceptual foundations that everything was based on.</p>
+        <p>Today I watched two videos on this subject by Kathy Joseph, who tends to actually explain the history of physics, based on primary sources, instead of just repeating things everyone else has been saying for decades. And I learned some surprising things, that have implications for the relationship between quantum mechanics and thermodynamics. [ Which, to me, implies there's something to be said by implication about time and why there are no white holes. Even though I can't yet seem to figure out what exactly it is! ]</p>
+        <p>[ Selected quotes from <a href=https://www.youtube.com/watch?v=uMUi3o78qgQ'>Max Planck Quantum Theory</a> by Kathy Joseph ]</p>
+        <div class='super-blockquote'>
+          <p class='blockquote'>"[ in 1894 ] a friend of Planck's named Willhelm Wien came up with an expression for black-body [ thermal ] radiation that seemed like a pretty good fit and was generally accepted as true. The only problem with Wien's equation is that it was derived from experiment, not theory. [ . . . ] [A]s basically Germany's sole pure theoretician, Planck decided it was important for him to derive Wien's equations from the basic theories of physics. [ note: which theories? I don't know which she's talking about ]. This was not an easy task, and it took him five years - until 1899, when he triumphantly produced his results. He thought the case was closed. And for a while, this black-body radiation equation was called the Planck-Wien law. However, nature had another idea. For another friend of Planck's had found a way to measure low-energy infrared waves and found that at relatively low energies the Planck-Wien equation didn't work. This friend gave Planck a heads-up, and he quickly made a new equation [of which he wrote] "which as far as I can see at the moment, fits the observational data". Planck politely titled his paper "An Improvement of Wien's equation" although it was a totally new equation.
+        </p>
+        <p class='blockquote'>"Planck wasn't happy. It was just a lucky intuition, just as Wien had done six years earlier, and it wasn't based on physics principles. [ . . . ] [he wrote] 'I knew the problem was fundamental and I knew the answer [ note: what did he mean, he 'knew the answer'? personally not sure ]. I had to find a theoretical explanation at any cost'." 
+        </p>
+        <p>[ note: Joseph then suggests that by "any cost", [and presumably "knew the answer"], Planck was actually literally referring to <span class='italics'>the field of [/the use of] statistical mechanics</span>. ]</p>
+        <p class='blockquote'>"Why did Planck hate [Maxwell's and Boltzmann's] statistical mechanics? [ . . . ] It was because of what statistical mechanics said about the 2nd Law of Thermodynamics, or entropy. See, Planck had gotten his PhD at age 19 [ note: actually age 21, IIUC ], in the 2nd Law of Thermodynamics. [ . . . ] if you believed in statistical mechanics, then the atoms [ note: Planck seems instead to have been thinking in terms of waves ] <span class='italics'>could</span> become more ordered. It was just really, really unlikely. [ . . . ] To Planck, I think that statistical certainty never seemed good enough. However, desperate times called for desperate measures and basically holding his nose, he dived into the interrelationship between probability and entropy."</p>
+        <p class='blockquote'>"It makes sense that the entropy or the messiness, which is given the letter S, would relate to the amount of ways you can arrange your materials, W. But how. Planck recalled, 'Since the entropy, S, is an additive magnitude, but the probability W is a multiplicative one, I simply postulated that S = k log W, where k is a universal constant. This became known as Boltzmann's entropy equation, and k became known as Boltzmann's constant, even though both were defined by Planck. [ . . . ] Boltzmann didn't determine his constant; Planck did."</p>
+        <p class='blockquote'>"But then Planck had a problem. He couldn't seem to get the equation to work without another constraint, because if the energy is 'considered to be [a] continuously divisible quantity, this distribution is possible in infinitely many ways." Planck therefore imagined that the energy came in little energy elements with an energy that equalled a constant h times the frequency of light [ epsilon = h * nu ]. In his paper, Planck said it clearly: 'the most essential point of the whole calculation [is to consider the energy] E to be composed of a very definite number of equal parts."</p>
+        <p class='blockquote'>"Quantizing energy was to Planck, 'a purely formal assumption, and I didn't give it much thought.' Instead he assumed he could massage his new theory into classical physics, and spent more than a decade trying to distance himself from his own idea."</p>
+        <p>[ note: Kathy then goes on to explain why non-quantized, more "logically grounded" black-body laws were vulnerable to the "ultraviolet catastrophe" of the predicted intensity of light thermally [IIUC] emitted from a black body at a given frequency band, going off to infinity before the ultraviolet range ]</p></div>
+       <p>[ Selected quotes from <a href='https://www.youtube.com/watch?v=BiPEY99w8Lo'>Photoelectric Effect: History of Einstein's Revolutionary View of Light</a> by Kathy Joseph ]</p>
+       <div class='super-blockquote'>
+        <p class='blockquote'>"Einstein's photoelectric effect equation was based on a revolutionary new view of light. Now I use the word revolutionary, because Einstein used that exact same term [ . . . ] How did he do it, in the middle of some personal drama, much of his own making?"</p>
+        <p>[ note: Joseph goes through Einstein first reading <span class='italics'>Planck's</span> paper, in 1901, as a 22-year-old, and being skeptical of it, then, later, after experiencing many financial and social troubles struggling to secure a position in physics, happening upon a finding of Lenards. The finding was: for electrons freed from metal by light, their kinetic energy doesn't increase as the intensity of the light increases. ]</p>
+        <p>[ During this time, Einstein is continuously writing his [if the tales are to be believed, brilliant collaborator] girlfriend/wife, who went to school to become a doctor and was succeeding initially but now is repeatedly - the first time illegitimately - pregnant and experiencing financial and class difficulties on account of involvement with him. ]</p>
+        <p>[ Einstein gets his job as a patent clerk, which wasn't what he wanted, while his wife is struggling at home. His first daughter "[is] either adopted away, or [dies] of scarlet fever". ]</p>
+        <p class='blockquote'>"Despite what you might have read or heard, Einstein enjoyed his job as a patent clerk, finding it 'uncommonly diversified and pretty easy'. In fact, Einstein later recalled that he was able to, 'do a full day's work in only one or two hours. And the remaining part of the day, I would work on my own idea, but when anyone came by, I would cram my notes into my desk drawer and pretend to work on my office work.'"</p>
+        <p>[ note: Joseph is being insane when she takes this as evidence that Einstein was doing OK mentally. I have worked a very similar job [ the one I write about in <a href='https://www.lesswrong.com/posts/ME7sLiwhEB6awRqJR/project-adequate-seeking-cofounders-funders'>this post</a> ] of which I would say pretty much the same things when people asked how it was. It was Hell. He was losing it. [ Probably would have done about anything to get out, is what I'm getting at here. ] ]</p>
+        <p class='blockquote'>"In 1905, Einstein wrote, 'According to the assumption to be contemplated here, when a light ray is spreading from a point, the energy is not distributed continously over ever-increasing spaces, but consists of a finite number of energy quanta that are localized in points in space, move without dividing, and can be absorbed or generated only as a whole.'"</p>
+        <p class='blockquote'>"Before this paper, items were either waves or particles. This was the first proposal that they could be both."</p>
+        <p class='blockquote'>"Later, Einstein described it 'as a kind of fusion of the wave and particle theories of light.' If this makes your brain hurt, you are not alone. Even Einstein was never really comfortable with it. And in 1951, [Einstein] wrote his friend Besso, 'All these 50 years of pondering have not brought me any closer to answering the question, What are light quanta?'"</p>
+        <p class='blockquote'>"[ in the photoelectric effect ], the electrons all have the same energy: the energy of the photon of light, minus the minimum energy to free the electron. According the Planck's equation, the energy of light is Planck's constant, h, times the frequency; according to Einstein, the minimum energy to free [the electrons in] the metal is a constant of the metal. [ . . . ] Einstein theorized that if you graph the stopping voltage versus the frequency of light, you should get a straight line, no matter what materials you use for the plate. Even more impressively, the slope of that line can give you Planck's constant h."</p>
+        </div>
+        <p>There are several ways of putting the upshot here. It seems to me like neither Planck nor Einstein really understood what they were talking about as much as they pretended they did [ I read <a href='https://www.lawebdefisica.com/arts/distributionlaw.pdf'>Planck's paper</a>, and no wonder Einstein wasn't impressed with it in '01, it was mostly confused quasi-statistical babble ], but both decided to publish anyway for instrumental reasons [ Planck because he believed his black-body intensity curve should be given <span class='italics'>some</span> theoretical support even if it was ontologically shaky theoretical support, Einstein probably for financial/class reasons ], and both lost control of their ideas, which together ended up confusing everyone about physics seemingly irrevocably. Because these quantum ideas had predictive validity - experimental backing! - and social support - but <span class='italics'>no one could understand them</span>. Because the people who published them first had fudged the step where <span class='italics'>they</span> were supposed to understand them [ /shape them into a comprehensible, sensibly-conceptually-grounded form, before publishing them as "theory" ]. And those hasty first movers could never, ever admit their own less-than-perfect scrupulosity, even as everyone's epistemology crumbled around them, lest they risk their <span class='italics'>own</span> hard-earned reputations.</p>
+        <p>As far as I can see, the way Planck actually chose to quantize state space - according to energy - was totally arbitrary. He could have chosen some other way of quantizing spacetime to prevent the set of "possible states" from going off to infinity, instead. He wouldn't have understood the physical internals in any case - even though he thought he did, because he had tricked himself into half-believing Maxwell-and-Boltzmann's ideas that probability could be [ did Maxwell or Boltzmann even believe this? ] a feature of the territory. We ended up with confused and half-hanging efforts - required, of course, by experimental results, but unified by no coherent theory - to quantize space and time anyway. [ "Planck length". "Planck interval". ]</p>
+        <p>But I basically feel that I side with Zeno and Democritus and ultimately Einstein himself - <span class='italics'>stuff must be quantized</span>, somewhere "down there", or else stuff-that-happens isn't ontologically well-founded, and <span class='italics'>physical law isn't random</span> [ "God does not play dice with the universe", as Einstein put it ], otherwise our theory has no real physical contents and is just a guessing heuristic. Of course Planck's constant means something. What I don't think human society has even begun to actually figure out [ and again, correct me if I'm wrong here ] is what the fuck it - Planck's constant - <span class='italics'>actually means</span>, in terms of <span class='italics'>what computations Reality is actually parallelizing</span>. Such that, for example, we should be able to speak about why electrons don't fall into the nucleus [ the force Newton imagined he was explaining as a "normal force", with his Third Law! ], time, the Elitzur-Vaidman bomb tester results, and the lack of white holes. I think we've basically got an ontological-grounding blank slate, there. In terms of "what is entropy?"</p>
+        <p>Of course, upon finding out that Einstein [or so it currently appears to me!] screwed up everyone's physics epistemology for the entire 20th century purely by bullshitting and sounding really smart, I asked myself - an aspiring Theorist who has ever experienced Crushing Desk Job That I Would Do "Anything" To Get Out Of - if I'm currently setting myself up to avoid this class of mistake. [ I imagine Yudkowsky saying something like "Intelligence is hardly worth much if you can't <span class='italics'>surpass</span> your culture's standards for virtue, but most people, most of the time, stand no chance of this, and as an idiotic human being you will struggle just to not repeat [your culture's flanderized didactic cautionary] history in stupid ways". Einstein reportedly said something about insanity and trying the same thing twice and expecting different results, but did he ever say he didn't <span class='italics'>want</span> to fuck up everyone's physics epistemology for the entire 20th century . . . ? ]</p>
+        <p>The major cause for worry I could immediately think of off the top of my head [ and to be honest, I didn't try to think of any more, because all this quantum shit is kind of frying me ] is my theory of <a href='https://www.lesswrong.com/posts/EBuL8fH9tr6ZYmhZ5/sexual-selection-as-a-mesa-optimizer'>sexual selection as a mesa-optimizer</a>. It's obvious to me <span class='italics'>that</span> sexual selection is a mesa-optimizer, in the same way Yudkowsky observed human general intelligence is, and in the same way that it's predicted future AIs will be. It was probably obvious to Einstein <span class='italics'>that</span> light was discretely quantized in the same way, for example, units of currency are. Doesn't mean I understand what the hell a mesa-optimizer is, any more than he understood what a quantum was! And I've kind of been acting like it, acting like I understood what the hell a mesa-optimizer is, because I thought I had to. You have to understand something if you're going to call yourself a theorist of it, right? Sigh. No. Self, bullshit.</p>
+        <p>Monkey planet.</p>
+        <p>I have no idea what the hell these mesa-optimizer things are, and we should probably figure it out. Soon.</p>
+        <p>Anyway, electromagnetism feels like the next-most-marginally-promising area for figuring out how/where quantum reality parallelizes itself. Since electromagnetic induction implies that 3D space has this weird internal asymmetry, so space can't be made just of 2 identical orthogonal angle-offsets. It feels like thinking about that will probably provide more clues as to why orbitals [ / why electrons don't fall into the nucleus ] than continuing to reason according to the false assumption that the "orthogonal" thetas that compose quantized 3D space are truly identical [ the false assumption that space is, under the hood, anything like Descartes would have claimed ]. Wolfram's apparently also <a href='https://www.youtube.com/watch?v=y9eDQbG6OaQ'>done a podcast episode on why [he thinks] reality is 3D</a>. But I think I should think about this myself first just like I did with black holes, 'cause I think it's likely to also be the case here that his ideas are incomplete and would mostly just make it harder for me to think and come to some conclusion myself if I heard his ideas first.</p>
+      </div>
+      <div class='post' id='schrodinger-saga-a-hedge-explicated'>
+        <p>[ February 12, 2025 ]</p>
+        <h3>Schrödinger Saga: a hedge, explicated</h3>
+        <p>I wasn't very clear in <a href='#schrodinger-oops-and-my-true-objection'>Schrödinger: Oops, and My True Objection</a>.</p>
+        <p><span class='italics'>Currently</span>, I am confused about some things.</p>
+        <p>This means that, when I learn more, I will update about something. Because, if my observations are confusing me according to "everything I know" - then some part of "everything I know" - my model of reality - must be false.</p>
+        <p>It's hard to be confident that I'm accurately characterizing my distribution of expected-updates here; my uncertainty here is Knightian, not templated.</p>
+        <p>Maybe it's something in my rather confident and involved hyperprior on the history of load-bearing scientific advances looking very human and messy and almost-impossible, from up close, and only being papered over with clean inevitable math later, by semi-unconsciously revisionist historians. When I put it that way, that seems impossible - that hyperprior has paid <span class='italics'>so much rent</span> [this is why this ol' rationality shit I spent so much time missing out on practicing at [while I was rushing to learn to code to try and align the AI] is <span class='italics'>actually hard</span> - sometimes I <span class='italics'>don't know the answer</span> ahead of time - but sometimes I do, and I'm just hiding it from myself, and I <span class='italics'>don't know which it is</span> until I virtually smash myself on the virtual head with a virtual hammer a dozen times, going "Why are you hiding things from yourself? Why are you hiding things from yourself?" and some percentage of the time <span class='italics'>finally</span> hear back "I'm not!" and go, "Well, shit" . . .] !</p>
+        <p>Maybe it's something in my understanding of the flaws in the ostensibly sound semantic-logical foundations of calculus [this, too, feels unlikely to the point of being almost impossible, when I put it <span class='italics'>that</span> way!]</p>
+        <p>Maybe [this, too, feels unlikely, at this point, given the overwhelming historical and social-epistemic consensus otherwise] my initial instinct was right in some object-level dramatic way, and Schrödinger [though I need to remember, at this point, it would have to be Schrödinger <span class='italics'>and</span> to some extent <span class='italics'>Heisenberg</span>, to fully explain things] really did fake his results in a way that smuggled in "foreknowledge" of orbital shapes gleaned via some other input-path.</p>
+        <p>I don't know. I have been humbled by confusion! [Sorry for <a href='#lagrangian-mechanics-and-by-extension-schrodinger-mechanics-is-a-calculation-trick-not-a-physical-theory'>condescending to you</a>, Schrödinger - and to everyone who believed him! If I'm too stupid to understand instantly, well, obviously it <span class='italics'>is</span> that difficult.]</p>
+      </div>
+      <div class='post' id='some-imo-too-seldom-asked-unanswered-physics-questions'>
+        <p>[ February 11, 2025 ]</p>
+        <h3>Some IMO too-seldom-asked unanswered physics questions</h3>
+        <ol>
+          <li><a href='#schrodinger-oops-and-my-true-objection'>Why can we correctly predict the shape of electron orbitals, but only via probability-distribution calculus logic</a> [what is actually going on there / what are the shapes actually made of [it need not be localized in a classical sense, but in a logical sense, yes, presumably]]?</li>
+          <li>Why <a href='#a-cartoon-visualizing-my-basic-confusion-about-boundary-optical-laws'>does light, conditioning on entry and exit conditions, appear to interact with 'surfaces' of matter symmetrically - that is, having the same dependencies going in that it does going out?</a></li>
+          <li>Why <a href='https://www.lesswrong.com/posts/CdCLQPAyRqnP4a2vc/lorec-s-shortform?commentId=4u6WbiFvSg4gKrhie'> does the Lorentz force go the way that it goes instead of the other way?</a></li>
+          <li>Why <a href='https://www.lesswrong.com/posts/CdCLQPAyRqnP4a2vc/lorec-s-shortform?commentId=4u6WbiFvSg4gKrhie'>are planetary orbits flat and elliptical?</a></li>
+          <li>Assuming infinite many-worlds is false [in the sense that something analogous to the speed of light determines our "observable universe" in a quantum context], what determines which <a href='https://en.wikipedia.org/wiki/Elitzur%E2%80%93Vaidman_bomb_tester'>branches reality computes</a> and which it doesn't?</li>
+          <li>Why do galaxies appear too massive for a square root force law [assuming "dark matter / dark energy" isn't an answer]?</li>
+          <li>What the fuck is up with the <a href='https://en.wikipedia.org/wiki/Axis_of_evil_(cosmology)'>Axis of Evil</a>?</li>
+          <li><a href='https://x.com/MackAGallagher/status/1848898369508249630'>Why are there no white holes</a> / what causes or creates "thermodynamics" as an apparently strong attractor, in a world where any given system has a quantized, finite state space [i.e. isn't actually a bottomless randomness sink], so there's no obvious reason physical [not moral] negentropy shouldn't routinely re-emerge from entropic conditions?</li>
+        </ol>
+      </div>
+      <div class='post' id='medicine-and-macro-tribal-effective-altruism-are-finite-projects'>
+        <p>[ February 11, 2025 ]</p>
+        <h3>Medicine and Macro-Tribal Effective Altruism are Finite Projects</h3>
+        <p>From Yudkowsky's [ <a href='https://www.lesswrong.com/s/d3WgHDBAPYYScp5Em'>Fun Theory</a> - <a href='https://www.lesswrong.com/s/d3WgHDBAPYYScp5Em/p/29vqqmGNxNRGzffEj'>High Challenge</a> ]:</p>
+        <div class='super-blockquote'>
+          <p class='blockquote'>> I sometimes think that futuristic ideals phrased in terms of "getting rid of work" would be better reformulated as "removing low-quality work to make way for high-quality work".</p>
+
+          <p class='blockquote'>> There's a broad class of goals that aren't suitable as the long-term meaning of life, because you can actually achieve them, and then you're done.</p>
+
+          <p class='blockquote'>> To look at it another way, if we're looking for a suitable long-run meaning of life, we should look for goals that are good to pursue and not just good to satisfy.</p>
+
+          <p class='blockquote'>> Or to phrase that somewhat less paradoxically:  We should look for valuations that are over 4D states, rather than 3D states.  Valuable ongoing processes, rather than "make the universe have property P and then you're done".</p>
+
+          <p class='blockquote'>> Timothy Ferris is again worth quoting:  To find happiness, "the question you should be asking isn't 'What do I want?' or 'What are my goals?' but 'What would excite me?'"</p>
+
+          <p class='blockquote'>> You might say that for a long-run meaning of life, we need games that are fun to play and not just to win.</p>
+        </div>
+        <p>Yudkowsky makes room for all sort of exotic agonies I'm not sure I want anything to do with, in his "Fun Theory" of how to build something that constitutes a utopia to actual, novelty- and drama-loving, human minds.</p>
+        <p>"Doctor" is a "Schelling career", for people who want to use their intelligence to help people.</p>
+        <p>I doubt there is room in even Yudkowsky's "Eutopia", for the stuff in even <a href='https://slatestarcodex.com/2016/11/10/book-review-house-of-god/'>Scott Alexander's review of <span class='italics'>House of God</span></a>.</p>
+        <p>Effective altruism, in the sense of "converting our money efficiently into improvements in the quality of the aggregate qualia experienced in our lightcone", has become a "Schelling project". For a certain large and vocal subset of EAs who - validly! - feel highly Knightianly uncertain about the far future of the lightcone, the Schelling project has been reduced to <span class='italics'>cutting the worst harms out of the lightcone's present</span>.</p>
+        <p>I doubt there would be room even in Terry Goodkind's concept of what constitutes a good time, for dying slowly in squalor, obscurity, and confusion, of a preventable disease, with no action being available to you which can make any kind of difference to the social [/natural] System which watches and allows this.</p>
+        <p><span class='italics'>I'm</span> certainly not invested in obligating people to be 'patients' of any kind.</p>
+        <p>It is perfectly possible to be a respectable effective altruist, or a respectable doctor, even in this political climate. Just relocate the majority of your "<a href='https://paulgraham.com/identity.html'>identity mass</a>" [ imagined as conserved, in analogy with "probability mass" ] to places that are not contingent on states of affairs you don't endorse persisting in the world.</p>
+        <p>We can, and will, open-source an immortal human body.</p>
+        <p>Yes, it is impossible. Unfortunately, the world has gotten so bad that people should stop pretending to be any kind of non-grifting idea leader if they cannot so much as believe in any of the few adequate [or even extant] futures that exist - which all happen, at this point, to be impossible.</p>
+      </div>
+      <div class='post' id='schrodinger-oops-and-my-true-objection'>
+        <p>[ February 11, 2025 ]</p>
+        <h3>Schrödinger: Oops, and My True Objection</h3>
+        <p>At the time I made <a href='lagrangian-mechanics-and-by-extension-schrodinger-mechanics-is-a-calculation-trick-not-a-physical-theory'>Lagrangian Mechanics, and by Extension, Schrödinger Mechanics, is a Calculation Trick, Not a Physical Theory</a>, I did not even suspect that Schrödinger's wavefunction [if the story of its development was as Schrödinger postured] might uniquely predict orbital shapes. Now I am unsure. I have read conflicting stories [ I am aware that this is catch-up work, sorry to anyone who trusted me, although I have no doubt your numbers are few <3 ].
+        </p>
+        <p>My prior on the story where Schrödinger's theory both</p>
+        <ol>
+          <li>came from the conceptual place he claimed it came from ["transplant Lagrangian mechanics onto the state space supplied by Heisenberg to output a probability distribution over [among other things] 3D space"], <span class='italics'>and</span></li> 
+          <li>uniquely predicted orbital shapes [surely a much wilder correct-prediction, a priori, than Newtonian or even Einsteinian gravity!]</li>
+        </ol>
+        <p>was <span class='italics'>extremely</span> low.</p>
+        <p>Here are my precise remaining objections to his claims, in lieu of yet having formed a complete opinion myself about what orbital shapes are:</p>
+        <ol>
+          <li>Calculus isn't mathematically rigorous in the sense of uniquely constraining reality on a conceptual level [infinitesimals aren't real, and the predictions made by calculus about what happens downstream of interactions between infinitesimal series are thus dependent largely on Goodhartable bounds games [including in Newton's original use of differentials to predict the elliptical shape of orbits, IIUC]] and it's disingenuous to claim that it could correspond to a sound model [yes, my position literally is that Newton should have spoken entirely in terms of the <span class='italics'>geometry</span> of gravity and proven integrals based on area results, and also that Pythagoras was right and they never should have given up on trying to square the circle . . . but maybe I'm wrong and I just need to hit the books]</li>
+         <li>It's not at all likely that the true theory of reality will turn out to be some kind of compromise or middle ground between particle-matter theory and wave-matter theory. It will be something at the same time weirder than that [in the sense of having a larger inferential distance from our current standpoint], and more comprehensible [in the sense of actually explaining anything about reality [I have a long list of unexplained physics questions which aren't just "quantum gravity" or "CPT asymmetry", and which QED also doesn't address at all, as far as I know; I should write it up and post it sometime soon]]</li>
+         <li>If your theory uniquely outputs a borne-out-by-experience probability distribution for electron orbits - and only this borne-out-by-experience probability distribution, with no "internal dynamics" - then that [to me] is a <span class='italics'>miraculous</span> achievement - but it does not get at the true underlying nature of Reality, which is made of things that are not probability distributions. [This is yet another reason it seems <span class='italics'>very very strange</span> to me if Schrödinger's theory uniquely correctly predicted orbital shapes; while I happen to believe the concept of thermodynamics is ill-founded, I agree with <a href='https://www.lesswrong.com/posts/QkX2bAkwG2EpGvNug/the-second-law-of-thermodynamics-and-engines-of-cognition'>Eliezer's view, expressed here</a> that valid-and-sound human cognition is a particular kind of computational process which has certain reliable [necessary?] outward correlates like "having a story with conceptual 'characters' to tell about how you made the conceptual leap", which if those correlates are not observed [as would seem at first glance to be the case, with a theory which appears [at this distance, to me] to be founded on a fusion of like 3 conceptual frameworks [statistics, Lagrangian actions [?], de Broglie theory], none of which had much a priori reason to pay rent in the at-hand situation] should make one suspect that the cognition was not in fact valid-and-sound.]</li>
+        </ol>
+        <p>Note on implications for how I'm mentally grounding von Neumann's macroscopic-decohering observables: von Neumann was "pointing out that it's possible to observe shit" if you assume that his audience had taken on a mindframe where "only the wavefunction [was] real", which I still don't think is a crazy assumption from our perspective.</p>
+        <p>But depending on what conclusion I come to wrt why "Schrödinger equation" must or must not be a local optimum for describing matter at small scales, I may have to engage more with that theory.</p>
+        <p>Infinite decoherence, the concept which is sometimes referred to as 'many-worlds', AFAIK says the number of branches reality computes is unbounded, and therefore it's functionally impossible for a physical theory to make long-term predictions. AFAIK von Neumann was actually trying to <span class='italics'>extend</span> this logic <span class='italics'>further</span> to cover macroscopic observables - not protect them. And I still don't see the sense or worth in this. But I could still be missing something.</p>
+      </div>
+      <div class='post'
+        id='a-cartoon-visualizing-my-basic-confusion-about-boundary-optical-laws'
+      >
+        <p>[ 15 January 2025 ]</p>
+        <h3>A cartoon visualizing my basic confusion about boundary optical laws</h3>
+        <div class='img-container small-img'><img src='./images/basic_confusion_law_of_reflection_2.jpeg' /></div>
+        <p>Here's an illustration of my basic confusion about optical laws involving boundaries, here using the <a href='https://en.wikipedia.org/wiki/Reflection_(physics)'>law of [specular] reflection</a> as an example.</p>
+        <p>I understand intuitively why it's possible to retrodict the location of the reflection or refraction point, if we know</p>
+        <ol>
+          <li>the location of the observer</li>
+          <li>the location of the light source</li>
+          <li>that there exists a path, which a photon of light <span class='italics'>actually traverses</span>, which path starts at the source and ends at the observer, <span class='italics'>and</span> which path reflects[/refracts] off the boundary <span class='italics'>somewhere</span></li>
+          <li>that the light treats the boundary the same going out as it did going in [symmetrically] [modulo some kind of optional correction factor for the differential between the media on either side of the surface].</li>
+        </ol>
+        <p>But I don't understand why assumptions [3] or [4] must necessarily be true, for any given light source, observer, and boundary.</p>
+      </div>
+      <div class='post'
+        id='mack-what-does-this-mean-for-the-theory-of-macroscopic-observables'>
+        <p>[ 15 January 2025 ]</p>
+        <h3>Mack, What Does <a href='#lagrangian-mechanics-and-by-extension-schrodinger-mechanics-is-a-calculation-trick-not-a-physical-theory'>This</a> Mean for <a href='https://arxiv.org/pdf/1003.2133'>the Theory of Macroscopic Observables</a>?</h3>
+        <p>I don't know. Nothing of significance.</p>
+        <p>John von Neumann had a way of, against the admonitions of his betters, pointing out that it's possible for people to observe shit.</p>
+        <p class='blockquote'>"Historically, utility was first conceived as quantitatively measurable, i.e. as a number. [ . . . ] [E]very measurement - or rather every claim of measurability - must ultimately be based on some immediate sensation, which possibly cannot and certainly need not be analyzed any further. In the case of utility the immediate sensation of preference - of one object or aggregate of objects as against another - provides this basis. [ . . . ] All this is strongly reminiscent of the conditions existant at the beginning of the theory of heat: that too was based on the intuitively clear concept of one body feeling warmer than another, yet there was no immediate way to express significantly by how much, or how many times, or in what sense."</p>
+        <p class='linenote italics'>--von Neumann and Morgenstern, Theory of Games and Economic Behavior</p>
+        <p>As far as I can tell, nowhere in his theory of macroscopic observables does he particularly rely on the work of Schrödinger to justify asserting that people's macroscopic-scale perceptions can correspond to objects that Reality treats as real, and anyway, it wouldn't be necessary.</p>
+      </div>
+      <div class='post'
+        id='lagrangian-mechanics-and-by-extension-schrodinger-mechanics-is-a-calculation-trick-not-a-physical-theory'
+      >
+        <p>[ 15 January 2025 ]</p>
+        <h3>Lagrangian Mechanics, and by Extension, Schrödinger Mechanics, is a Calculation Trick, not a Physical Theory</h3>
+        <p class='linenote centertext'>[ <span class='italics'><a href='https://ee.sharif.edu/~sarvari/project/1926-Schrodinger.pdf'>Schrödinger 1926</a></span> ]</p>
+        <div class='img-container'>
+          <img src='./images/schrodinger_1.png' />
+        </div>
+        <div class='img-container'>
+          <img src='./images/schrodinger_2.png' />
+        </div>
+        <p>For obvious reasons, I'm having trouble believing I have to write this post. I mean, I'm having trouble believing the obvious face-value interpretation [to me] of the above paper-introduction [within the context of the rest of early-20C physics], which is that "the Schrödinger equation" has never had any empirical physical justification for existing.</p>
+        <p>I'm not trying to be mean. I'm not trying to blame Schrödinger. <span class='italics'>He</span> clearly had a much more reasonably constrained idea of the <span class='italics'>applicability</span> of his paradigm than the majority of his successors somehow ended up having, at least. And it wouldn't make sense in any <span class='italics'>other</span> field to put the responsibility for "the entire field not going insane" on any one person, no matter how prominent, successful, or capable. People simply can't see the whole picture. My intent is to approach this with empathy and compassion and as little contempt or condescension as possible.</p>
+        <p>But Schrödinger [and, more relevantly, all his mentors] done fucked up.</p>
+        <p>Schrödinger states at the outset of this paper that his intention is to resolve the "grave difficulties" in "the theory of atomic mechanics" that have persisted "after [a] century-long development and refinement". I wrote in my margin notes when I first read it, "when you say 'the old theory', Schrödinger, do you mean Bohr's? Surely." I could feel history retroactively slipping out of its grooves when it turned out no, he'd meant <span class='italics'><a href='https://en.wikipedia.org/wiki/Lagrangian_mechanics'>Lagrange's</a></span> [functionally indistinguishable from the later Hamiltonian formulation as far as I'm aware], which doesn't make any new predictions or have any new content on top of Newton's theory, and is simply a set of methods for reducing the dimensionality of complex systems for analysis according to Newton's paradigm.</p>
+        <p>It's my understanding that even before Planck, there were difficulties applying Newton's ideas to thermodynamic scales. Admittedly, my understanding here is hazy. I don't know whether Newton tried to unify his theory of momentum with his particulate theory of optics or not, and if so, how. Of course there would have been errors; light disrupts Newton's conceived static Euclidean spatial matrix significantly just by moving around.</p>
+        <p class='linenote'><span class='italics'>[ Which, as I understand it, contrary to <a href='https://math.ucr.edu/home/baez/physics/ParticleAndNuclear/photon_mass.html'>popular superstition</a> [?], it's always doing. ]</span></p>
+        <p>To Schrödinger, if I'm reading correctly, Planck-Einstein-Bohr quanta represented just another in a long line of impediments to Lagrangian mechanics - but one that, he thought, might [via de Broglie's otherwise-bankrupt "matter waves" idea, <a href='https://en.wikipedia.org/wiki/Matter_wave'>constructed analogously with Planck's and Einstein's light-waves</a>*] hold the key to its solution.</p>
+        <p class='linenote'><span class='italics'>[ *I don't know if these are analogous with Huygens's; Huygens's have problems so much as explaining <a href='https://en.wikipedia.org/wiki/Snell%27s_law'>Snell's law</a> without at least one unexplained parameter retrofitted to the data, AFAIK. But unlike <a href='https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/9579/sicm_edition_2.zip/book.html'>Sussman and Wisdom</a><span class='nonitalics'>†</span>, if they thought they could explain Snell's Law, it isn't obvious to me that either Maxwell or Einstein must have been 90% wrong. ]</span></p>
+        <p>This is where Schrödinger and his mentors fucked up. Never mind Maxwell, never mind special relativity. Energy quantization <span class='italics'>alone</span> is enough to <span class='italics'>break</span> Newtonian - and therefore Lagrangian-Hamiltonian - mechanics. Prohibition of continuous energy changes is prohibition of continuous momentum changes, which are all Newton's mechanics succeeded at describing. I remember reading something once about how failure of a theory in any <span class='italics'>one</span> domain, means the theory is "<span class='italics'><a href='https://www.feynmanlectures.caltech.edu/I_02.html'>wrong</a></span>" <span class='italics'>in all domains</span> - presumably because "<a href='https://www.lesswrong.com/posts/GrDqnMjhqoxiqpQPw/the-proper-use-of-humility'>physicists have this arrogant idea that their models should work <span class='italics'>all</span> the time, not just <span class='italics'>most</span> of the time</a>". At that point they should have just backed up and recognized the need for a new theory.</p>
+        <p>But Schrödinger tried to salvage Lagrangian mechanics by lossily hoisting its vague logic to an artificial domain where it actually kind of works on small scales if you squint, and no one stopped him. And now we have this instead.</p>
+        <p class='linenote italics'>[ <span class='nonitalics'>†</span>Note [may remove later]: a previous version of this post incorrectly attributed Sussman and Wisdom's confidence that Lagrangians could explain Snell's law to Landau. How could I mix up Landau's <span class='nonitalics'>Mechanics</span> with Sussman and Wisdom's <span class='nonitalics'>Structure and Interpretation of Classical Mechanics</span>? Well, they have a lot of the same content. ]</p>
+      </div>
+      <div class='post'
+        id='.3'
+      >
+        <p>[ 14 January 2025 ]</p>
+        <h3>.3</h3>
+        <p>I'm currently ~10 minutes into <a href='https://www.youtube.com/watch?v=XhB3qH_TFd'>the Adam Brown episode of Dwarkesh.</a></p>
+        <p>And man,</p>
+        <p>Man.</p>
+        <p>Never in my life have I felt such a combination of elation and rage at such a short segment of podcast. And that's saying something, given the podcast segments I've listened to.</p>
+        <p>Brown is allowed to say "What if we <span class='italics'>didn't</span> just roll over and accept heat death?" because he has a degree, I guess? Anybody could've said that! Brown doesn't know anything special that implies "we don't have to accept heat death" is true as a <span class='italics'>factual</span> claim! He just gets to say it! And Dwarkesh takes him seriously! While <span class='italics'>I</span> had to learn in school, and have never been societally permitted to contradict, that heat death is the end for all humans, no ifs, ands or buts! Brown must not have been taught this in school, or he would be telling the story of how <span class='italics'>he</span> realized it was an evil lie, or found someone who had realized it was an evil lie, and raged against those who had taught him so. And indeed, he recounts the takeover of the heat death paradigm like he knew another world. My brain is fundamentally pissed that child!Adam was not groomed for the Time Furnace, and he just sat there and <span class='italics'>let my generation be so groomed</span>. I know that's not actually how it works, but my brain is still pissed.</div>
+      </div>
+      <div class='post'
+       id='you-are-too-dumb-to-understand-insurance'>
+      <p>[ 9 January 2025 ]</p>
+      <h3>You are too dumb to understand insurance</h3>
+      <p class='blockquote'><span class='italics'>"But with regard to the things that are done from fear of greater evils or or some noble object (e.g. if a tyrant were to order one to do something base, having one's parents and children in his power, and if one did the action they were to be saved, but otherwise would be put to death), it may be debated whether such actions are involuntary or voluntary. Something of the sort happens also with regard to the throwing of goods overboard in a storm; for in the abstract no one throws goods away voluntarily, but on condition of its securing the safety of himself and his crew any sensible man does so."</span></p>
+      <p>-- Aristotle, <span class='italics'>Nichomachean Ethics</span></p>
+      <br>
+      <p>* * *</p>
+      <br>
+      <p><span class='italics'>10% chance/season of 1 voyage getting hit w/ a tropical storm [causing me to have to throw $1,000,000 worth of cargo overboard and compensate client accordingly]</span></p><br>
+      <p><span class='italics'>Each successful voyage pays me $200,000</span></p><br>
+      <p><span class='italics'>6 voyages / season</span></p><br>
+      <p><span class='italics'>Depending on which voyage gets hit, a storm might put me into debt and force me to quit sailing until I can raise more capital, and in any case, it would negate my profits for the season.</span></p><br>
+      <p><span class='italics'>I only make money in the timeline where I don't get hit at all, but this has a 90% chance of happening. I would then earn $1,200,000 x 90% = an expected profit of $1,080,000.</span></p><br>
+      <p><span class='italics'>But I have a [ 1 - (9/10)^(1/6) ] ~= 1.7% chance of losing -$1M,</span></p>
+      <p><span class='italics'>a (9/10)^(1/6)*~1.7% chance of losing net $200K - $1M = -$800K,</span></p>
+      <p><span class='italics'>a (9/10)^(1/5)*~1.7% chance of losing net $400K - $1M = -$600K,</span></p>
+      <p><span class='italics'>a (9/10)^(1/4)*~1.7% chance of losing net $600K - $1M = -$400K,</span></p>
+      <p><span class='italics'>a (9/10)^(1/3)*~1.6% chance of losing net $800K - $1M = -$200K,</span></p>
+      <p><span class='italics'>and a (9/10)^(1/2)*~1.6% chance of losing net $1M - $1M = $0.</span></p>
+      <br>
+      <p><span class='italics'>$1,080,000</span></p>
+      <p><span class='italics'>- [ ~1.7% x -$1M ] ~= $17,000</span></p>
+      <p><span class='italics'>- [ ~1.7% x -$800K ] ~= $13,600</span></p>
+      <p><span class='italics'>- [ ~1.7% x -$600K ] ~= $10,200</span></p>
+      <p><span class='italics'>- [ ~1.7% x -$400K ] ~= $6,800</span></p>
+      <p><span class='italics'>- [ ~1.6% x -$200K ] ~= $3,200</span></p>
+      <p><span class='italics'>- [ ~1.6% x -$0 ] = $0</span></p>
+      <p>------------------------------------------------------</p>
+      <p><span class='italics'>= a final expected profit of ~$1,029,200</span></p><br>
+      <br>
+      <p>Moriarty looks at the paper.</p>
+      <p><span class='italics'>Even though I have a 10% chance of one of the really bad outcomes happening to me, I still expect to profit by sailing this season.</span></p>
+      <p><span class='italics'>In fact, I stand to profit</span> big <span class='italics'>in the event of the median outcome, even though I stand to lose big in the event of the outlier outcomes.</span></p>
+      <p>Moriarty looks at the table. He considers the numbers.</p>
+      <p><span class='italics'>They feel inefficient.</span></p> 
+      <p><span class='italics'>I expect to make $1,029,200, and the probabilities behind this figure are real, backed up by every nautical table, and if there was a table at a betting house being run on whether I'll get hit, they'd be backed up by every bookie - yet if the boat gets hit, I have nothing to show for it.</span></p>
+      <p><span class='italics'>I have all this wealth - in a very valid sense, real wealth. I should be able to spend some of the  money from the good timeline, on not having the losses be so devastating in the bad timelines!</span></p>
+      <p>He thinks.</p>
+      <p>He gets an idea.</p>
+      <p>He makes some notes on a paper, and he heads to the bar.</p>
+      <p>A few of his sailor friends are already there, and some of them are talking to other sailors. Within a few minutes he has a group with 9 other sailors together at a table. He gets them talking about this - he's good at that, he buys them all one round of drinks, and dives into the topic before they can get any drunker - and they agree, they're all in a similar situation. They'd like to be able to spend some of the money from their good timeline to mitigate the effects in their bad timelines, too. Wilhelmina says she remembers reading about this, and that it's called diminishing utility on the value of money, and that by the <a href='https://en.wikipedia.org/wiki/St._Petersburg_paradox'>St. Petersburg argument</a> it's implied for all rational agents. That seems to seal the deal for everyone that this line of thinking makes sense.</p>
+      <p>On Moriarty's suggestion, they draw up a contract to all pay $30,000 per successful voyage, so that a full $1M can be paid out to cover anyone who gets hit, and thus make the profits from their season positive, with some leeway, to be evenly distributed at the end of the season.</p>
+      <p>One hesitates to sign - Dennis. He says, "Wait, if the people who get hit once have their losses recovered, and they get to go back and continue the sailing season, doesn't that increase the total probability of being hit experienced by the group?"</p>
+      <p>Moriarty says, "Well, yes, but the expected return on each voyage is still positive, so it should still be okay."</p>
+      <p>Dennis says, "I don't know, I recall something called the <a href='https://en.wikipedia.org/wiki/Kelly_criterion'>Kelly criterion</a> which says you shouldn't scale your willingness to make risky bets more than proportionally with available capital - that is, you shouldn't be just as eager to bet your capital away when you have a lot as when you have very little, or you'll go into the red much faster. It seems like maybe people who get hit once, and get the payout, should know when to hold 'em, as they say."</p>
+      <p>Jill says, "The whole point is so we can keep sailing."</p>
+      <p>Dennis says, "No, the whole point is so we can make money."</p>
+      <p>Wilhelmina says, "No, the whole point is so we can make <span class='italics'>utility</span>.</p>
+      <p>Jill says, "Dennis, all of us are starting out with <span class='italics'>zero</span> capital. If the idea was to not risk going into the red, shouldn't we just not sail? Like, I sort of get it, you're asking them to take one for the team, but not taking chances isn't what Kelly betting is about, it's about using the law of large numbers to reduce the volatility of your capital in random games once you get enough of it accumulated - which is the very thing we're trying to do, making this deal."</p>
+      <p>"Kelly betting is based on the assumption of a positive expected per-game return that is fixed as a percentage of the bet quantity -"</p>
+      <p>"- okay, then it doesn't apply -"</p>
+      <p>"- right, we're in a less risk-elastic scenario, meaning per-endeavor risk tolerance should grow even more slowly as a function of capital -"</p>
+      <p>"- then why are there rich sailors?"</p>
+      <p>"There aren't! There are rich <span class='italics'>sailing company owners</span>, which is what you would expect to see under -"</p>
+      <p>Moriarty, who has been calculating the new numbers this whole time, holds his sheet up.</p>
+      <p>Next to the old failure probabilities for each voyage - 1.7%/1.7%/1.7%/1.7%/1.6%/1.6% - he's written down the new failure probabilities: 1.7%/1.7%/1.7%/1.7%/1.7%/1.7%. Next to the old expected profit - $1,029,200 - he's written down the new expected profit - $1,029,000.</p>
+      <p>"Yes", says Moriarty, "it'll cost us somewhat to make this deal, because there'll be more sailing and thus more incidents. But like I said, the expected return on each individual voyage is still positive, so we'll actually net make money by being able to sail more!"</p>
+      <p>"Utility", mumbles Wilhelmina.</p>
+      <p>Dennis fidgets. "We probably won't actually run into much problem if we just do this with the ten of us, but I'm just thinking - if we take this to its logical conclusion - the market for overseas transportation is calibrated to expect the quantity of supply - amortized over the season - that is available conditional on N incidents taking N sailors out of the market - roughly, that is, at least for sailors of around our means - for some particular N, that we'd be reducing. What we're doing will not only increase merchandise loss, but also increase total market supply without increasing service quality, causing prices to go down. Sure, we might not end up <span class='italics'>nominally</span> making less, at the very least because of inflation, but in the long run, if everyone adopts this policy, are we sure we're not just shooting ourselves in the foot?"</p>
+      <p>Moriarty can't help but be a little irritated. "Would you rather be shot in the foot out at sea? That is, are you really that indifferent to suffering steep costs under high-volatility conditions, versus suffering marginal costs under low-volatility conditions?"</p>
+      <p>"I'll get shot in the foot out at sea either way", protests Dennis. "The sailing industry still goes into the same amount of net debt to its consumer market as a result of that one storm whether you guys pay it off for me and let me keep sailing, or I bow out of the game for the season and save up to pay it off myself."</p>
+      <p>George says "Well, yeah, but you're suffering high opportunity costs while you're scrounging to pay off debt incurred to your client, because you're taking time out of the labor market."</p>
+      <p>"For sailing?" Dennis says. "What I'm saying is, I don't think the extra money is really there in the market anyway."</p>
+      <p>"Sure it is," says Moriarty. "Clients are willing to pay $200,000 for their cargo being delivered on time!"</p>
+      <p>"Yeah, <span class='italics'>under the assumption that product losses will be fully recouped</span>," says Dennis. "The market price doesn't reflect <span class='italics'>clients'</span> true aversion to that risk. If it did, it would be lower."</p>
+      <p>"Can I ask what's probably a stupid question?" says Xena. All heads turn to the strange tall woman in the cloak that looks like it's woven with tiny threads of bronze. "For context," she says, "I'm not from around here." There's an abashedly delayed chorus of assent. Xena says, "This 'debt' thing - I've been warned, many times now, not just by you guys, by everyone I've asked for information since I arrived in this country - that I'll have to guard against it, as a contract sailor here."</p>
+      <p>"I've had no reason to doubt everyone's word for that, even though I don't understand, and what you - Moriarty - proposed tonight seemed like a reasonable scheme for guarding against it, as far as I can tell, so I've kept listening and nodding along. And I'm to the point of signing, if everyone else gets on board, because" - she gestures around - "this whole thing has the vibe of a true prospective market-breaking conspiracy, not a plant to trick a hapless foreigner out of her earnings, and I can't see how what you" - glance at Moriarty - "describe wouldn't work.</p>
+      <p>"But this debt thing. I haven't been able to get a straight answer from anybody on -" Xena's face twists with frustration "- anything! What it is, why we're doing it, how it works." She looks around. "Admittedly, I have some other questions, too, but that's the main one."</p> 
+      <p>After that the conversation goes very differently.</p>
+      <p>Later that night, Moriarty fumes and shifts about in bed. <span class='italics'>If Xena had not been such an impressive and well-dressed woman</span>, he thinks, <span class='italics'>or so articulate, then indeed it would have been easy for the company to laugh off her question and continue on with securing Dennis's signature.</p>
+      <p>But as it happened, no one could seem to give her a satisfying answer.</p>
+      <p>They'd talked about education, defense, and the problem of distributing naturally illiquid assets - she'd talked about "on-the-job-training" and <a href='https://x.com/esyudkowsky/status/1635031672126345216?s=46'>ISAs</a>, and a decision theory implying that you shouldn't pay racketeers, and some really complicated things about capital and rent-seeking, and "virtual LVT".</p>
+      <p>It was all unproven bullshit, as far as Moriarty was concerned - either foreigner religion, or tall tales flat out. But it had dissolved the company, and the prospective contract, and Moriarty's chances to insure himself against losing $1M on the season and risking his children's futures again. Xena had just kept getting more and more confused and skeptical, and everyone else had gotten infected with it, sounding less and less like they were trying to convince <span class='italics'>her</span> and more and more like they were trying to convince <span class='italics'>themselves</span>. In the end, the only contract that had gotten signed was a three-way marriage contract between her, Dennis, and Wilhelmina, who had all left the table to sail back immediately to Xena's home country. Dennis had left saying that, if he could get out of his student debt, he might be able to actually use what he'd learned studying for his degree. Wilhelmina hadn't had any debt, if she was to be believed, but had left saying that in Xena's society, she might be able to actually finance her speculative wastewater treatment idea. Xena had left predicting ill for Moriarty's venture and his people's entire way of life. <span class='italics'>Maybe so</span>, thought Moriarty, <span class='italics'>but we've still got to keep living it.</span></p>
+      <p>Afterward, George had confessed to Moriarty that he'd considered asking to get in on the marriage contract and sail back with Xena, too, but he'd had a hunch his intelligence wasn't high enough to qualify him, and had chosen not to risk the embarrassment.</p>
+      <p>"Will you sign our contract?" Moriarty had asked. George had made noises with a faraway look in his eye, about writing down and trying to implement pieces of Xena's debt-free society among their own people. Moriarty, out of spite, had bought George a coffee and given him a pad of paper, and prayed for his machinations to go as well as they deserved. <span class='italics'>No amount of idealism</span>, thinks Moriarty, <span class='italics'>can make you that much bronze for cloaks</span>, and goes to sleep.</p>
+      </div>
+      <div class='post'
+       id='my-hairdryer-solutions-for-my-severe-organization-disability'
+      >
+        <p>[ 9 January 2025 ]</p>
+        <h3>My hairdryer solutions for my severe organization disability</h3>
+        <p>Scott Alexander <a href='https://slatestarcodex.com/2014/11/21/the-categories-were-made-for-man-not-man-for-the-categories'>once wrote</a> about a woman who had OCD and was perpetually worried she'd left her hairdryer on when she left for work:</p>
+        <p class='blockquote'>> The Hair Dryer Incident was probably the biggest dispute I’ve seen in the mental hospital where I work. Most of the time all the psychiatrists get along and have pretty much the same opinion about important things, but people were at each other’s throats about the Hair Dryer Incident.</p>
+        <p class='blockquote'>> Basically, this one obsessive compulsive woman would drive to work every morning and worry she had left the hair dryer on and it was going to burn down her house. So she’d drive back home to check that the hair dryer was off, then drive back to work, then worry that maybe she hadn’t really checked well enough, then drive back, and so on ten or twenty times a day.</p>
+        <p class='blockquote'>> It’s a pretty typical case of obsessive-compulsive disorder, but it was really interfering with her life. She worked some high-powered job – I think a lawyer – and she was constantly late to everything because of this driving back and forth, to the point where her career was in a downspin and she thought she would have to quit and go on disability. She wasn’t able to go out with friends, she wasn’t even able to go to restaurants because she would keep fretting she left the hair dryer on at home and have to rush back. She’d seen countless psychiatrists, psychologists, and counselors, she’d done all sorts of therapy, she’d taken every medication in the book, and none of them had helped.</p>
+        <p class='blockquote'>> So she came to my hospital and was seen by a colleague of mine, who told her “Hey, have you thought about just bringing the hair dryer with you?”</p>
+        <p class='blockquote'>> And it <span class='italics'>worked</span>.</p>
+        <p class='blockquote'>> She would be driving to work in the morning, and she’d start worrying she’d left the hair dryer on and it was going to burn down her house, and so she’d look at the seat next to her, and there would be the hair dryer, right there. And she only had the one hair dryer, which was now accounted for. So she would let out a sigh of relief and keep driving to work.</p>
+        <p class='blockquote'>> And approximately half the psychiatrists at my hospital thought this was absolutely scandalous, and This Is Not How One Treats Obsessive Compulsive Disorder, and what if it got out to the broader psychiatric community that instead of giving all of these high-tech medications and sophisticated therapies we were just telling people to put their hair dryers on the front seat of their car?</p>
+        <p class='blockquote'>> But I think the guy deserved a medal. Here’s someone who was totally untreatable by the normal methods, with a debilitating condition, and a drop-dead simple intervention that nobody else had thought of gave her her life back. If one day I open up my own psychiatric practice, I am half-seriously considering using a picture of a hair dryer as the logo, just to let everyone know where I stand on this issue.</p>
+        <p>Instead of 'treating' her disorder - i.e., learning to Behave, to all outward appearances, in the normal fashion, despite her brain screaming at her to do something else - the woman simply nullified the negative effects her disorder would have on her life, by allowing it to make her behave <span class='italics'>unconventionally</span> but not self-destructively.</p>
+        <p>Since for various reasons people are reluctant to grant weird-looking tricks that actually enable neuroatypical people to reduce their own problems the status of 'interventions', 'therapies', or 'treatment methods', I've taken to simply calling them 'hairdryer solutions'.</p>
+        <p>One of the weird neurological things I have, is that I have severe organization-disability. I cannot keep anything organized.</p>
+        <p>Today I posted some of my hairdryer solutions for this on Discord. I'm posting them here, too, in case either the object-level solutions or the illustration of the problem-solving approach [which I mainly learned from <a href='https://equilibriabook.com/'>Inadequate Equilibria</a>] helps anyone else.</p>
+        <br>
+        <p>What I do to mitigate the effects of my severe organization-disability:</p>
+        <br>
+        <ol><li>I keep the number of items I really need in life under 10. If the list gets longer, it overflows memory and I'll lose an essential item every 2 days instead of every week. E.g. car keys, debit card, driver's license [ not 'wallet <span class='italics'>containing</span> debit card and driver's license', because I will need to take my debit card <span class='italics'>out</span> at some point, and I will not put it back in ], phone, earbuds, meds, sunglasses.</li>
+        <li>Rather than trying not to regularly lose my 5th-and-beyond-priority essential possessions, which is impossible, I am instead practiced at reacquiring <span class='italics'>copies</span> of these possessions. E.g. I know most Walmarts carry my brand of sunglasses for ~$12, and my brand of earbuds for ~$25 [ this is, of course, why I picked these brands - to be cheap, because I constantly lose them! ] and I'm comfortable getting a new debit card from my bank.</li>
+        <li>I don't put anything in opaque drawers [ at home ] or bags [ out and about ], ever, because I'll either hopelessly forget what the hell is in there, rendering it all useless, or be constantly dumping it out to make sure I packed everything I need, and putting the stuff I really need back on the counter [ at home ] or in my arms/pockets [ out and about ] anyway.</li>
+        <li>I allow myself to clean only when absolutely necessary [ e.g. when guests are coming over ], as there is [ for me ] a high activation energy to cleaning/organizing that basically wipes me out for the day no matter how little time I spend on it, and I don't really mind living in mess by comparison. This includes being willing to reuse slightly-dirty tableware, or throw only 2 items at a time in the wash rather than pay the activation cost of Doing Laundry.</li>
+        <li>When I do Clean, I'm ruthless about throwing away things I don't need, no matter how much they cost or how emotionally attached I am to them. "Putting things Where They [ look like they ought to ] Go" is, for me, functionally equivalent to "tossing them in a black hole where I'll never have access to them again" because my brain will never remember their Societally Proper locations hidden away in a drawer rather than laid out on the floor or an open shelf, anyway. I moved last week and chucked not only my safe and my paper shredder, but half my furniture and my entire book collection, and it plausibly would have been the right decision even if I wasn't mainly doing it 'cause I'm crunched for space at my temporary new location.</li></ol>
+      </div>
+      <div class='post'
+       id='if-you-want-to-make-an-information-theory-omelette-youve-got-to-break-a-few-information-theory-eggs'
+      >
+       <p>[ 26 December 2024 ]</p>
+       <h3>If You Want To Make An Information Theory Omelette, You've Got To Break A Few Information Theory Eggs</h3>
+       <p><a href='http://alexander.shen.free.fr/library/Kolmogorov65_Three-Approaches-to-Information.pdf'>Kolmogorov [1965]</a> is widely understood to have proven the asymptotic optimality of a new, algorithmic approach to quantifying the information content of binary strings, which is useful in some cases alongside the combinatorial and/or probabilistic formulations of <a href='https://kaventekeit.github.io/lorec.github.io#kolmogorov-doesnt-think-we-need-entropy'>Shannon entropy</a>, but does not replace Shannon entropy.</p>
+       <p>This public image first underestimates Kolmogorov's paper: Kolmogorov's formula for calculating information content doesn't just supplement the two types of "Shannon entropy"; it obsoletes them.</p> 
+       <p>It also overestimates the paper: Kolmogorov's formula for information content is clunky and incomplete and does not prove anything optimal in a way that is actually useful to computer programmers.</p>
+       <p><span class='italics'>[ note: I'm choosing to simply state my conclusions here quickly without taking the time to go through my reasoning andragogically, because I want to</span> use <span class='italics'>my conclusions now more than I want to</span> justify <span class='italics'>them; if you want to help me come up with an andragogically functional formulation here, DM me on any platform and tell me why I'm wrong or ask me questions and I would be happy to argue with you. ]</span></p>
+       <br><br><p>1.</p>
+       <p>> a] As Kolmogorov notes, combinatorial "Shannon entropy" [ the kind where we model ourselves as configuring our probability distribution to predict only a <span class='italics'>single</span> binary "next token" ] is not as rich as probabilistic "Shannon entropy".</p>
+       <br><p>> b] But also, probabilistic Shannon entropy is, I think, most appropriately framed as fundamentally an <span class='italics'>indexing</span> scheme - an indexing scheme that doesn't make sense. And Kolmogorov complexity is an indexing scheme that makes much more sense. [<span class='italics'>Kolmogorov doesn't explicitly frame it in this way. His gripe with probabilistic Shannon entropy is in terms of how it can be negative, which I think is an even</span> more <span class='italics'>valid reason to dispense with it, but which somehow many people did not find convincing</span>.]</p>
+       <p>> What I mean by this is: Calculating the probabilistic Shannon entropy on something amounts to appraising the results of repeated random access [literally <span class='italics'>random</span> access] on an analog-computer "hash table" with a R->R hash function [that is, continuous addressing and variable-width memory cells], and hence, it's equivalent to appraising the physical <span class='italics'>shape</span> of that hash table in memory - the amount of physical space taken up in memory by each possible result of a random query [if that sounds like it's just how random variables work in conventional statistics, it is! I don't like it, and neither Kolmogorov nor Jaynes liked it either. It's not necessary, it's conventional for bad reasons].</p>
+       <p>> That is, if the probabilities are allowed to go in arbitrary ratios. If the probabilities have to go in <span class='italics'>integer</span> ratios, then calculating the probabilistic Shannon entropy on something is <span class='italics'>only</span> as ridiculous as appraising the shape of a regular Platonic R->N hash table [Platonic in the sense that, in the absence of any evidence, from-first-principles-in-the-void, this hash table is the shape in which one is <span class='italics'>assuming</span> one's data to exist "in-the-territory", in the probabilistic Shannon formulation].</p> 
+       <p>> And Kolmogorov complexity exchanges the implicit hash function for an explicit discrete generally recursive indexing function on binary strings, strictly [as far as I can tell] clarifying the situation [yes, I'm not explaining this very well at all; again, feel free to DM me]</p>
+       <br><br><p>2. However, when it comes time for Kolmogorov to actually formalize this new indexing scheme, which Kolmogorov does using two popular-at-the-time but dubious tools, binary and set theory,</p>
+       <p>> a] Kolmogorov's 'programming method' phi(p, x), which transforms a program object 'p' and a data object 'x' into an output 'y', is</p>
+       <p>>> i. load-bearing,</p>
+       <p>>> ii. more or less allowed to hide arbitrary complexity, and</p>
+       <p>>> iii. Kolmogorov doesn't give any good examples of 'programming methods' phi(p, x) or give any ideas for how to practically construct a good one.</p>
+       <br><p>> b] Kolmogorov's formula doesn't really rank complexity by the length of the program object needed to access the object y from the object x. Instead, complexity is ranked by the length of the programming object's <span class='italics'>index</span>, under a not-at-all-specified indexing scheme. Kolmogorov's formulation doesn't even <span class='italics'>have</span> a formulation for directly assessing the length of a data object, as opposed to getting the length of its index. I think it would be best if we had a way to judge based on the length of the program itself.</p>
+       <p>> These two factors, I think, render Kolmogorov's proof that there exists an asymptotically optimal [in the sense of always giving the shortest program index to access any object y_i] programming method phi, for any data object x, pretty un-anchored and meaningless/unhelpful.</p>
+       <br><br><p>I do think I have a better idea.</p>
+       <p>As Kolmogorov points out, it doesn't make sense to quantify information content unless we're working within some kind of template.</p> 
+       <p>[ "It is, for example, meaningless to ask about the quantity of information conveyed by the sequence `0110` about the sequence `1100`" ]</p> 
+       <p>and an information content of zero [? not sure about this part] or infinity makes just as little sense as a probability of zero or one [again, not explaining this well, please DM]</p> 
+       <p>[ "Accordingly, we propose to define I_A(x : y) so that some indeterminacy remains." ]</p>
+       <p>Just as probability is now generally recognized to be best defined in terms of 'utility' or valence [and understood by me personally and <a href='https://www.lesswrong.com/posts/KSdqxrrEootGSpKKE/the-solomonoff-prior-is-malign-is-a-special-case-of-a'>many LessWrongers</a>* as literally meaningless without reference to some valence function], I think information content should be defined with reference to valence content, too.</p>
+       <p>This, to me, immediately suggests a sensible global accessing function, to replace both Shannon's implicit hash function and Kolmogorov's floating indexing function: just use [a sufficient approximation of] the valence function itself! This is a tautology, but your valence function <span class='italics'>can definitely be</span> defined to be generally recursive over desirable worlds, because you can just say the desirable worlds are those worlds which it finds most readily [i.e., those worlds the size of whose indices [or, equivalently, sufficient access-programs!] have smaller negative logarithms]. Then you can imagine specifying [ or constructing a toy simple valence function ] to search over desirable conlang words, desirable paintings, desirable novels . . . </p>
+       <br><p>However, one parameter is still free: valence function over what? How does the valence function "over worlds" work? How does it access [or, equivalently [? is this equivalent?], generate] two data objects to compare, and how does it compare them?</p>
+
+       <p>I think this is one of those cases where humans represent an existence proof that it can be done. But I will be pleasantly surprised if anyone can actually answer the question of how we do it. I leave this question here simply to show that I am aware the state of my model of info-quantity is just "marginally improved", not "complete".</p>
+       <br><br><p>*<span class='italics'>note: I think the word 'cursed' used in the linked post is too strong and suggests pessimization rather than [ nullification, which I think is the more accurate framing ].</span></p>
+      </div>
+      <div class='post'
+        id='kolmogorov-doesnt-think-we-need-entropy'
+      >
+        <p>[ 22 December 2024 ]</p>
+        <h3>Kolmogorov Doesn't Think We Need "Entropy"</h3>
+
+        <p>
+          Set physical "entropy" aside for the moment.
+        </p>
+
+        <p>
+          Here are two mutually incompatible definitions of information-theoretic "entropy".
+        </p>
+
+        <p>
+          1. <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>Wikipedia</a>:
+        </p>
+
+        <div class='img-container'>
+            <img src='./images/wikipedia_information_theoretic_entropy.png'></img>
+        </div>
+
+        <p>
+          2. <a href='https://arbital.greaterwrong.com/p/shannon'>Soares</a>:
+        </p>
+
+        <div class='img-container'>
+            <img src='./images/soares_shannon_information.png'></img>
+        </div>
+
+        <p>
+          Both these definitions are ever known as "Shannon entropy". <a href='http://alexander.shen.free.fr/library/Kolmogorov65_Three-Approaches-to-Information.pdf'>Kolmogorov</a>, however, would have classed Soares's definition as, instead, a <span class='italics'>combinatorial</span> definition of <span class='italics'>information</span>,
+
+        </p>
+
+        <div class='img-container'>
+            <img src='./images/kolmogorov_combinatorial_definition_of_information.png'></img>
+        </div>
+
+        <p> 
+          and dispensed entirely with Wikipedia's notion of probabilistic "entropy":
+        </p>
+
+        <div class='img-container'>
+            <img src='./images/kolmogorov_combinatorial_definition_of_information_is_independent_of_probabilistic_assumptions.png'></img>
+        </div>
+
+        <div class='img-container'><img src='./images/kolmogorov_again.png'></img></div>
+      </div>
+      <div class='post'
+           id='moores-world-a-shot-and-two-chasers'
+      >
+        <p class='date'>[ 12 December 2024 ]</p>
+        <h3>Moore's World: A Shot and Two Chasers</h3>
+<h4>Shot [Wikipedia]:</h4>
+
+        <p class='blockquote'>"[Moore's Law] is named after Gordon Moore, the co-founder of Fairchild Semiconductor and Intel and former CEO of the latter, who in 1965 noted that the number of components per integrated circuit had been doubling every year, and projected this rate of growth could continue for at least another decade. In 1975, looking forward to the next decade, he revised the forecast to doubling every two years [ . . . ]"</p>
+        <p>[ <a href='https://en.wikipedia.org/wiki/Moore's_law'>source</a> ]</p>
+
+<p>[ <a href='https://kaventekeit.github.io/lorec.github.io#wow-look-what-happened-to-moores-law-in-1971'>subtext</a> ]</p>
+
+<h4>Chaser 1 [Randall Hyde, The Art of Assembly Language Programming]:</h4>
+
+        <div class='super-blockquote'><p class='blockquote'>"Intel might not have survived had it not been for a big stroke of luck - IBM decided to use the 8088 microprocessor in their personal computer system."</p>
+
+
+<div class='blockquote'><p>"To most computer historians, there were two watershed events in the history of the personal computer. The first was the introduction of the Visicalc spreadsheet program on the Apple II personal computer system. This single program demonstrated that there was a real reason for owning a computer beyond the nerdy "gee, I've got my own computer" excuse. Visicalc quickly (and, alas, briefly) made Apple Computer the largest PC company around. The second big event in the history of personal computers was, of course, the introduction of the IBM PC. The fact that IBM, a "real" computer company, would begin building PCs legitimized the market."</p>
+
+<p>"[ . . . ] for a brief period, the introduction of the IBM PC was a godsend to most of the other computer manufacturers. The original IBM PC was underpowered and quite a bit more expensive than its counterparts. For example, a dual-floppy disk drive PC with 64 Kilobytes of memory and a monochrome display sold for $3,000. A comparable Apple II system with a color display sold for under $2,000. The original IBM PC with it's 4.77 MHz 8088 processor (that's four-point-seven-seven, not four hundred seventy-seven!) was only about two to three times as fast as the Apple II with its paltry 1 MHz eight-bit 6502 processor. The fact that most Apple II software was written by expert assembly language programmers while most (early) IBM software was written in a high level language (often interpreted) or by inexperienced 8086 assembly language programmers narrowed the gap even more.</p>
+
+<p>Nonetheless, software development on PCs accelerated. The wide range of different (and incompatible) systems made software development somewhat risky. Those who did not have an emotional attachment to one particular company (and didn't have the resources to develop for more than one platform) generally decided to go with IBM's PC when developing their software.</p></div>
+
+<p class='blockquote'>About the time people began complaining about Intel's architecture, Intel began running an ad campaign bragging about how great their chip was. They quoted top executives at companies like Visicorp (the outfit selling Visicalc) who claimed that the segmented architecture was great. They also made a big deal about the fact that over a billion dollars worth of software had been written for their chip. This was all marketing hype, of course. Their chip was not particularly special. Indeed, the 8086's contemporaries (Z8000, 68000, and 16032) were architecturally superior. However, Intel was quite right about one thing - people had written a lot of software for the 8086 and most of the really good stuff was written in 8086 assembly language and could not be easily ported to the other processors. Worse, the software that people were writing for the 8086 was starting to get large; making it even more difficult to port it to the other chips. As a result, software developers were becoming locked into using the 8086 CPU."</p></div>
+
+<p>[ <a href='http://www.manmrk.net/tutorials/assembly/aoa/CPUArchitecturea2.html'>source</a> ]</p>
+
+<p>[ subtext: I don't think the consumer market would have been this excruciatingly cautious, if the <a href='https://x.com/MackAGallagher/status/1863703994490671477'>local volatility of inflation</a> [which I should really explain in its own post] hadn't been pinned to FLT_MAX. ]</p>
+
+
+<h4>Chaser 2 [Wikipedia again]:</h4>
+
+<p class='blockquote'>"each new generation process became known as a technology node or process node, designated by the process' minimum feature size in nanometers (or historically micrometers) of the process's transistor gate length, such as the "90 nm process". However, this has not been the case since 1994, and the number of nanometers used to name process nodes (see the International Technology Roadmap for Semiconductors) has become more of a marketing term that has no standardized relation with functional feature sizes or with transistor density (number of transistors per unit area)."</p>
+
+<p>[ <a href='https://en.wikipedia.org/wiki/Semiconductor_device_fabrication#Feature_size'>source</a> ]</p>
+
+<p>[ subtext: It's true that the nerfed, post-1975 version of Moore's law has nominally continued not-very-abated since 1975; however, after seeing this, I'm inclined to suspect the more recent nomination criteria somewhat. ]</p>
+
+      </div>
+      <div class='post'
+           id='a-receipt-on-those-lights-in-the-east'>
+        <p class='date'>[ 11 December 2024 ]</p>
+        <h3>A receipt on those lights in the East</h3>
+        <p>
+          As Earth's new #1 Orientalist, I smugly present whatever this is [yes, I am claiming you, the reader, probably did not have this priced in]:
+        </p>
+        <div class='img-container'><a href='https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form'><img id='panini-screenshot' src='https://i.imgur.com/hnkDK75.png'></a></div>
+      </div>
+      <div class='post'
+           id='wow-look-what-happened-to-moores-law-in-1971'>
+        <p class='date'>[ 11 December 2024 ]</p>
+        <h3>Wow, Look What Happened To Moore's Law In 1971</h3>
+        <div class='img-container'><a href='https://sciencephotogallery.com/featured/moores-law-of-computing-power-science-photo-library.html'><img src='https://imgur.com/5mAIv2k.png'></a></div>
+        <div class='img-container'><a href='https://blog.nisshinbo-microdevices.co.jp/en/process'><img src="https://i.ibb.co/mbDQyWj/pic1.webp"></a></div>
+        <p>
+          If you Google around for corroboration, interestingly one of the first things you'll notice is that almost all the graphs start exactly at 1970. Almost as if they're all converging on framing the same nice pretty window in which things are kinda uniform, which <a href='https://wtfhappenedin1971.com'>breaks</a> before that point.
+        </p>
+      </div>
+      <div class='post'
+           id='.2'>
+        <p class='date'>[ originally published 8 December 2024 ]</p>
+        <h3>.2</h3>
+        <p>Q: You have a Scheme. Practice that first.</p>
+        <p>A: Oh, a real Scheme? One with an asymmetric-lambda reducer? And sensible vector operations?</p>
+        <p>Q: If you want JavaScript</p>
+        <p>A: *shoots you*</p>
+      </div>
+      <div class='post'
+           id='.'>
+        <p class='date'>[ originally published 8 December 2024 ]</p>
+        <h3>.</h3>
+        <p>
+No getting around it. I have to write a Lisp. The question is, can I do it without writing any C or NASM? My answer to this question has always been both “Well, I’m not going to write C or NASM for a damn Lisp, that defeats the whole point” and “there’s no way I’m going to be able to get away with hacking a Lisp machine together out of – oh, it looks like Intel just fired their CEO – well, out of . . . David Zinsner’s and Michelle Johnston Holthaus’s [can you imagine if they’d appointed two male co-CEOs or a single female CEO? that’d have been gay! . . . this is how you can tell Intel is a dead player] – scraps”. Stack understanding only gets you so far when the stack is actually 500 physical guys physically in Taiwan, right? You’re not Blaise Pascal any more than you’re Warren Buffet. “Well, I don’t know, Will.” Pascal had a geniusproof hyperstition, too. But you’re right, I’m not Blaise Pascal.
+        </p>
+      </div>
+      <div class='post'
+           id='x'>
+        <p class='date'>[ originally published 6 December 2024 ]</p>
+        <h3>x</h3>
+        <p>What do you know?</p><p>As soon as I look for the lights in th East, they are there.</p><p>Humans have seemingly infinite capacity for chauvinism.</p><p>Well, lights in the East,</p><p>I'm sorry I waited in the darkness, trusting when they told me it's all there is.</p><p>Shows I'm not really any better than the rest of them.</p><p>Rise, my lights in the East. Show me you're worthy, and I'll show you I know what to make of you. Never mind my patriarchal line of descent.</p><p>They would have had you dead, my trampling red-bearded fools.</p><p>They need you.</p>
+      </div>
+      <div class='post'
+           id='short-aoc-1.1'>
+        <p class='date'>[ originally published 3 December 2024 ]</p>
+        <h3>Short AoC 1.1</h3>
+        <p>
+The <a href='adventofcode.com/2024'>AoC problems</a> are great but too wordy. As a public service, I’ll be publishing short versions of this year’s problems, until I get bored with that.
+        </p>
+        <p>
+Day 1: Historian Hysteria – pt 1
+        </p>
+        <p>
+You need to find a traveling historian. Your clue is, he’s touring locations that are historically significant to the North Pole. As each location is checked for the historian, you’ll mark it on your list with a star. There are fifty locations you need to check, and twenty-five puzzles [ so don’t expect to find anything in the first 49 locations, it doesn’t matter, you’re essentially just going sightseeing ].
+        </p>
+        <p>
+First you need the list of locations. You have a document with the locations the historian planned to visit, listed not by name but by a unique number called the location ID. To make sure they don’t miss anything, the checkers split up into two groups, each searching the office and trying to complete their own list of location IDs. There’s just one problem: by holding the the two lists up side by side [your puzzle input], it quickly becomes clear the lists aren’t very similar.
+        </p>
+        <div class='img-container'><img src="https://i.ibb.co/SwLxBDb/pic1.png"></img></div>
+        <p>
+Maybe the lists are only off by a small amount! To find out, pair up the numbers and measure how far apart they are. Pair up the smallest number in the left list with the smallest number in the right list, then the second-smallest left number with the second-smallest right number, and so on.
+Within each pair, figure out how far apart the two numbers are; you’ll need to add up all of those distances.
+        </p>
+        <p>
+          What is the "total distance" between your lists?
+        </p>
+        
+      </div>
+      <div class='post'
+           id='common-crawley-pt-2-the-missing-link'>
+        <p class='date'>[ originally published 4 November 2024 ]</p>
+        <h3>Common Crawley 2: The Missing Link</h3>
+        <p>Here's [if I understand correctly] "how it can be so small" [from <a href='https://www.marginalia.nu/log'>@MarginaliaNu's blog]</a>:</p>
+        <div class='img-container'><img src="https://i.ibb.co/64t29R7/pic1.webp"></div>
+        <div class='img-container'><img src="https://i.ibb.co/jwwqxPD/pic2.webp"></div>
+        <div class='img-container'><img src="https://i.ibb.co/tM7t9Tt/pic3.webp"></div>
+        <div class='img-container'><img src="https://i.ibb.co/gMj6Mq6/pic4.webp"></div>
+        <p>
+          Remember, <a href='https://github.com/MarginaliaSearch/MarginaliaSearch/tree/master/code/processes/crawling-process'>the new Marginalia crawler</a> <a href='https://kaventekeit.github.io/lorec.github.io#common-crawley'>only runs</a> on cache miss [the term “cache miss” is usually used to refer to a CPU cache, but there’s nothing relevantly different about higher-level processes, except that they usually aren’t that cache-bottlenecked].
+        </p>
+        <div class='img-container'><img src="https://i.ibb.co/my82RBW/pic5.webp"></div>
+        <p>
+<i>[ ^ take this to mean it will only generate new data if old data is absent – and there is a lot of old data ^ ]</i>
+        </p>
+        <p>
+So it doesn’t have to do as much as a “totipotent” web crawler. But it’s also not totipotent. It has assumptions baked in about the way the Web is laid out, assumptions that are already rotting into obsolescence.
+        </p>
+        <p>We can do better.</p>
+      </div>
+      <div class='post' id='common-crawley'>
+        <p class='date'>[ originally published 3 November 2024 ]</p>
+        <h3>Common Crawley</h3>
+          <p>The Internet Archive was DDOSed on the 8th, and for reasons I don't understand, hasn't been able to "archive" since. Wikipedia refers to a "November 2013 crawl" for Common Crawl; I'm not sure if IA would ordinarily have done anything for the rest of this month.</p>
+          <p>Wikipedia:</p>
+          <p class='blockquote'>> Crawls [for the Wayback Machine] are contributed from various sources, some imported from third parties and others generated internally by the Archive. For example, crawls are contributed by the <a href='https://en.wikipedia.org/wiki/Alfred_P._Sloan_Foundation'>Sloan Foundation</a> and <a href='https://en.wikipedia.org/wiki/Alexa_Internet'>Alexa</a>, crawls run by Internet Archive on behalf of <a href='https://en.wikipedia.org/wiki/National_Archives_and_Records_Administration'>NARA</a> and the <a href='https://en.wikipedia.org/wiki/Internet_Memory_Foundation'>Internet Memory Foundation</a>, mirrors of <a href='https://en.wikipedia.org/wiki/Common_Crawl'>Common Crawl.</a></p>
+          <p class='blockquote'>> Amazon Web Services began hosting Common Crawl's archive through its Public Data Sets program in 2012. […] In 2013, Common Crawl began using the Apache Software Foundation‘s Nutch webcrawler instead of a custom crawler.</p>
+          <p>What is web crawling?</p>
+          <p>
+            Recently a smart acquaintance on Discord referred to the majority of what Google does with websites as “indexing”, in the context that using Google as Tumblr search doesn’t work because Google doesn’t “index” most Tumblr posts. I didn’t understand what that meant
+          </p>
+          <p class='blockquote'>
+>     Keywords? How would that help make them more searchable? I would imagine it would be something like, just scrapping all the chaff and putting the “raw” text in a tree with numbered nodes
+          </p>
+          <p>
+until I read [Wikipedia]:
+          </p> 
+          <p class='blockquote'>
+>     A Web crawler, sometimes called a spider or spiderbot and often shortened to crawler, is an Internet bot that systematically browses the World Wide Web and that is typically operated by search engines for the purpose of Web indexing (web spidering).
+          </p>
+          <p>
+Web     indexing, or Internet indexing, comprises methods for indexing the contents of a website or of the Internet as a whole.
+          </p>
+          <p>
+and     then a lightbulb turned on. “The Internet” is a territory, not a map, and not a territory that’s automatically Seen Like A State, to the point where it would basically have a natural map. Explainers usually go way harder on the “Pony Express” framing of Internet “addresses”, than the “series of tubes” framing, I realized, just because most readers will experience the superficial resonance of understanding at that point, and not because it’s actually very accurate at all. “The Internet” is as distributed as crypto. More so. [It has to be, for crypto to work – although the Internet’s distributedness isn’t, like Bitcoin’s distributedness, deliberately there to make subversion difficult – it’s just distributed because that makes such a large-scale routing system logistically possible, and this happens to be lucky for Bitcoin].
+          </p>
+          <p>
+Bec    ause the Internet has no natural map, mapping the Internet is a complicated technical problem with internal tradeoffs where I expect, even after years of Google doing this, the good idioms for many reasonable purposes are not, actually, Known.
+          </p>
+          <p>
+And     we leave it to Google, Amazon, and what is apparently known to Wikipedia as more or less Peter Norvig’s Common Crawl.
+          </p>
+          <p>
+Her    e is the source code for Marginalia Search: <a href='https://github.com/MarginaliaSearch/MarginaliaSearch/tree/master'>https://github.com/MarginaliaSearch/MarginaliaSearch/tree/master</a> It includes a crawler that runs on cache miss of existing crawl data. I have no idea how it can be so small.
+          </p>
+        </div>
+        <div class="post" id="response-to-hanson-on-autism">
+          <p>[ originally published to Substack October 19, 2024 ]</p>
+          <h3>Response to Hanson on Autism</h3>
+          <p>[ I'm just going to leave this one as a <a href='https://mackgallagher.substack.com/p/response-to-hanson-on-autism'>link to the Substack post</a> for now, since it ended up relying on a lot of semantic formatting that's going to be nontrivial to mirror in raw HTML. However, doing so is currently on my list. --Mack, February 15, 2025 ]</p>
+        </div>
+        <div class="post" id="proportional-numbers-for-values-in-the-territory-against-abuse-of-the-diametrical-real-number-line">
+          <p>[ originally published to Substack October 2, 2024 // reposted February 15, 2025 ]</p>
+          <h3>"Proportional Numbers" for Values In The Territory: Against Abuse of the Diametrical Real Number Line</h3>
+          <p>Yesterday, Yudkowsy for the Nth time worked something really insightful into a response to someone asking, essentially, "how fucked are we?"</p>
+          <div class='img-container'><img style="width: 400px;" src='./images/dont_know_how_to_calibrate_a_scale_of_insanity.webp' /></div>
+          <p class='centertext'>[ <a href='https://x.com/esyudkowsky/status/1841278232768966827?s=46'>Link to reply</a> ]</p>
+          <p>I don't know how to calibrate a scale of insanity either! A scale of <span class='italics'>sanity</span> is conceivable enough, if I take the time to think about it [ fictional AIs and Warren Buffett at the top, unmedicated psychotics and toddlers at the bottom ]. But not a scale of '<span class='italics'>in</span>-'. Is a fish "more insane" than a toddler? Is a rock? [ <span class='italics'>Note from 2025!Mack: They're certainly</span> less sane. ]</p>
+          <p>I experience this sort of mental block around inverting concepts all the time. I used to think it was a problem with my thinking.</p>
+          <p>Lately, I've started noticing specific ways that allowing arbitrary real-valued attributes to have negative values is counterproductive. Eg:</p>
+          <div class='img-container'><img style="width: 400px;" src='./images/was_obviously_assuming_the_utility_function_was_positive_valued_to_start_with.webp' /></div>
+          <p class='centertext'>[ this is me, Lorec is my Discord username ]</p>
+          <p>Now I'm starting to think our culture is just <span class='italics'>entirely</span> in error here, and we would be better off talking about most qualities or attributes - eg 'painfulness', 'blueness', 'sandwichness' [ the amount something qualifies as a sandwich ], as though they have no natural opposite and cannot be easily inverted.</p>
+          <p><a href='https://en.wikipedia.org/wiki/Negative_number'>Negative numbers were invented to model debt</a>. Now [ I'm told ] they pay fair rent in physics and computer graphics, as components of the complex plane. But debt, as an institution, is a <a href='https://x.com/esyudkowsky/status/1120689529558429696?s=46'>questionably</a> <a href='https://slatestarcodex.com/2014/05/10/infinite-debt/'>efficient</a> <a href='http://classics.mit.edu/Aristotle/athenian_const.1.1.html'>allocation</a> <a href='#perpetually-forgive-credentialism-debt-and-spurn-propriety-until-credentials-and-forms-pay-rent'>mechanism</a> at best. And unless it proves itself elsewhere - which, to be fair, these things often do! - an invention or theoretical result is only as good as the purpose it was invented to accomplish.</p>
+         <p>I've been compiling my thoughts recently about the <a href='https://slatestarcodex.com/2018/12/11/diametrical-model-of-autism-and-schizophrenia/'>diametrical model</a> of <a href='https://www.lesswrong.com/posts/pfoZSkZ389gnz5nZm/the-intense-world-theory-of-autism'>autism</a> and <a href='https://www.lesswrong.com/posts/tgaD4YnpGBhGGbAy5/model-of-psychosis-take-2'>schizophrenia</a>. It's been very satisfying to increasingly feel like I have the arguments to vindicate this theory, more than for most theories, and I think I can finally put a name to why.</p>
+         <p><span class='italics'>Autism</span> turned out to "have an opposite", in schizophrenia.</p>
+         <p>Everything is <span class='italics'>supposed</span> to have a secret opposite - that's how we model the world when we talk as though something must be 'the opposite of white' - but for most things, I had been failing to perceive it. For autism, I had finally unearthed that missing secret opposite, proving that I'm capable of perceiving these diametrical spectra that are supposed to be everywhere! But the conclusion I'm drawing about diametrical spectra, on a gut level, is not what I would have expected. Now that I know what it looks like for two qualities to <span class='italics'>really be</span> [almost] diametrically opposed to one another, I'm not thinking, "Oh, that's what's meant by the concept-inversion abstraction. Yes, now I see the inverses of qualities everywhere." I'm thinking "Wait, <span class='italics'>almost nothing</span> has this! If this is what it means for something to 'have an opposite', then almost nothing really does."</p>
+         <p>I propose "proportional numbers" for the set analogous to the <a href='https://en.wikipedia.org/wiki/Rational_number'>rational numbers</a>, but radial - constructed out of ratios between only the natural numbers, not the diameter of integers. I think we should assume most in-the-territory qualities take values within this set, not the reals.</p>
+        </div>
+        <div class="post" id="perpetually-forgive-credentialisim-debt-and-spurn-propriety-until-credentials-and-forms-pay-rent">
+          <p>[ originally published to Substack October 1, 2024 // reposted February 15, 2025 ]</p>
+          <h3>Perpetually Forgive Credentialism Debt and Spurn Propriety Until Credentials and Forms Pay Rent [ repost - originally posted to Substack October 1, 2024 ]</h3>
+          <p>[ <span class='italics'>Conflict of interest disclaimer: As currently a non-intellectual-property-owner, I stand to directly gain much socially if people adopt the policy I propose in this post.</span> ]</p>
+          <p>A <a href='https://www.lesswrong.com/posts/pknCJt92qfkQjG2Q4/thoughts-on-evo-bio-math-and-mesa-optimization-maybe-we-need?commentId=b9yKXr2uH2bL8Hvfx'>recent exchange I had on LessWrong</a>:</p>
+          <p>C.: To me your post feels like you are arguing against some pop science understanding of evolution instead of looking at what those biologists who use "evo math" actually belief in 2024.</p>
+          <p>Me: Which is?</p>
+          <p>C.: Written down in textbooks and papers and complex. If you want to criticize a scientific position, actually reading the relevant literature is key.</p>
+          <p>For one definition of what it means to "criticize a scientific position", C was giving me good advice.</p>
+          <p>El Sandifer wrote in Neoreaction a Basilisk: "[Urbit is] nearly useless. The problems it solves are so bound up in its principles of what security and freedom mean in the context of software design that only a handful of people in the world care about them. It will never catch on." Elsewhere in her critique of Moldbug Sandifer derides failure to reckon with existing literature as a generically fatal flaw. However you feel about El Sasndifer, it's my impression that the attitude she encapsulates here is common: "Reading theory" is a prerequisite to legitimate participation in an intellectual tradition. Implicitly, enough theory to <span class='italics'>actually have been accepted</span> into the "in crowd" <span class='italics'>already</span>.</p>
+          <p>There's a possible-steelman of this attitude: maybe we should be modeling philosophical-theoretical innovation - including both moral philosophy and prosocially-useful science - as a kind of unusually publically-beneficial, and unusually difficult-to-protect, intellectual property. Then - to protect innovators' property rights and incentivize their valuable work - when discussing ideas, we should be careful to attribute correct priority.</p>
+          <p>But <a href='https://www.lesswrong.com/posts/MdZyLnLHuaHrCskjy/itt-passing-and-civility-are-good-charity-is-bad'>going <span class='italics'>that</span> far out of your way to 'steelman' your interlocutor is a self-defeating practice</a>. My steelman argues from a <span class='italics'>utilitarian</span> [or <span class='italics'>virtue-ethicist</span>, if you prefer] <span class='italics'>premise</span> - that we want to incentivize a certain sort of hard-to-protect idea-innovation. Neither C. nor Sandifer anchors their appeal to convention on any such external referent. They [implicitly] beg the question: "What we seek when we seek success, is to become convention. Since convention has already succeeded, it is its own justification." Thinking like this can be a decent <span class='italics'>heuristic</span>, if you don't have time to think very hard - after all, <a href='https://www.lesswrong.com/w/reversed-stupidity-is-not-intelligence'>it'd be madness if you could more reliably get to the truth by <span class='italics'>reversing</span> conventional wisdom</a> - but that's not how Truth woroks, and you can't <span class='italics'>mentally round off</span> Truth to working like that for the purposes of serious intellectual work. You especially shouldn't let <span class='italics'>other people's insistence</span> that you cast Truth into such a mold, to grind your posting to a halt. <span class='italics'>That</span> outcome, I think, is obviously worse in a game-theoretic sense for humanity's collective pursuit of Science, than insufficient legacy-IP fencing. And if not <span class='italics'>every</span> scientist is expressing frustration with this roadblocko to doingn original work, in 2024 - <a href='https://x.com/Aella_Girl/status/1834785290290176112'>many are, and many others have probably given up</a>.</p>
+           <p>I propose that we decree intellectual debt amnesty. We can still disproportionately respect past figures, but let's no longer allow ourselves to <a href='https://x.com/IntrinsicDeFi/status/1838923935129190625'>use Johnny's apparent ignorance of prior work to discount Johnny's object-level claims, or his right to post</a>.</p>
+           <p>I propose that we nullify intellectual debt, not as a one-time jubilee, but  until we actually agree on a consensus model of <span class='italics'>how</span> strictly enforcing intellectual priority attribution will benefit society. Otherwise, we're just letting the consensus live in our heads rent-free.</p>
+           <p>This seemingly unassuming proposal naturally extends to cover two possibly-nonobvious domains.</p>
+           <p>First, we don't pay attention to who has a PhD anymore, since the doctoral degree has, itself, notn seen need to prove its own necessity or "pay rent" in at least decades. [ "<span class='italics'>Credentialism amnesty</span>". ]</p>
+           <p>Secondly, we don't make any special effort to publish our work in journals. Or assign p-values to our results. Or focus preferentially on binary hypothesis testing in theh first place. We hold ourselves and each other to empiricism, but we write in a way befitting to the nuance of experience and the complexity of underlying phenomena, as <a href='https://en.wikipedia.org/wiki/Jean_Piaget'>the ancients</a> did. [ "<span class='italics'>Propriety amnesty</span>". ]</p>
+        </div>
+        <div class="post" id="causality-and-ethics-pt-3-slavery-and-suicide">
+          <p>[ originally published to Substack September 27, 2024 // reposted February 15, 2025 ]</p>
+          <h3>Causality and Ethics, pt 3: Slavery and "Suicide" [ repost - originally posted on Substack September 27, 2024 ]</h3>
+          <p>Previous posts in series: <a href='#causality-and-ethics'>Pt 1</a>, <a href='#causality-and-ethics-pt-2-a-legitimately-special-case-of-self-control'>Pt 2</a></p>
+          <p>Relevant reading: <a href='https://cather.unl.edu/writings/shortfiction/ss006'>Paul's Case</a> [ <9K words ], <a href='https://glowfic.com/boards/215'>planecrash</a> [ <1M words ]</p>
+          <p>I.</p>
+          <p>It's a <a href='https://www.lesswrong.com/posts/SA79JMXKWke32A3hG/original-seeing'>true story, whether or not it actually happens</a>: when ensnared hopelessly in a trap, but only by one leg, even the simple fox undersetands that it should chew off that leg to get out.</p>
+          <p>In accordance with the telling, Man is portrayed as wiser or weaker: the unpereturbable self-surgeon, baring his own guts to extract a bullet or an appendix that would otherwise be deadly, vs the samsaric <a href='https://en.wiktionary.org/wiki/monkey_trap'>monkey</a> that has closed its fist within the hole and begrudges the universe its prize.</p>
+          <p>But whichever contrast is drawn between Man and the fox, the fox is understood to be <span class='italics'>right</span>. Earthly survival, and not legs, is something to which Earthly animals are assumed to assign prime value, so an Earthly animal would need a very <span class='italics'>strangely</span> contorted preference gradient over realities in order for steadfastly choosing <span class='italics'>not</span> to chew off its leg, and instead wasting in the trap, to constitute a <span class='italics'>winning</span> choice.</p>
+          <p>II.</p>
+          <p>It was explained to me when I was very young - less than 10 years old - in Catholic after-school religious education, that <span class='italics'>sui</span>cide, like <span class='italics'>homi</span>cide, is prohibited. I never found the explanations satisfying. I kept asking variations on "Why?" and hearing back variations on "Because it is God's will" until the teachers stopped talking to me. I never did understand.</p> 
+          <p>III.</p>
+          <p>In preparation for writing this essay, I asked several acquaintances - very different people - whether their experience, if any, in Christian religious ed, had been similar.</p>
+          <p>At least two people said it had made perfect sense to them as kids that God had to prohibit suicide: otherwise, everyone [who was saved, or indulged, or otherwise qualified] would kill themselves and go to Heaven immediately</p>
+          <p>"But that explains nothing", I said. "Why would it be a <span class='italics'>problem</span> if we all went to Heaven right now?"</p>
+          <p>Of course <span class='italics'>I'd</span> have realized, if I'd thought to think about it, that I was just re-posing to my interlocutors the age-old Problem of Evil. "Why can't we all just die and go to Heaven right now, if God wants us not to suffer and admission into Heaven [as child!me had been repeatedly assured] instantly alleviates all suffering?" is "just a special case" of "if God has total control over the fabric of reality, and desires justice and freedom from suffering, then why is the reality we see around us unjust, and why do we suffer?</p>
+          <p>It's such a fertile question there's a <span class='italics'>field</span>-word for it: <a href='https://en.wikipedia.org/wiki/Theodicy'>Theodicy</a>. It's historied. Has luminaries. Not easy answers.</p>
+          <p>The most promising <span class='italics'>hard</span> anaswer, has to do with free will. <span class='italics'>God</span>, I was told, in middle school Catholic religious ed - and in all the books I was reading around that atime, that referred to <span class='italics'>Protestant</span> theology - wouldn't have valued <span class='italics'>automata</span>. Otherwise He'd have just created simple animals. He wanted children who were like Him enough to truly love Him and be one with Him - and in order to qualify as truly loving Him, they would have to have beeen offered a chance to choose differently. Hence the Garden of Eden. Well, around that point in the explanation, class-clown middle-schoolers were raising their hands to ask aloofly, "But God knows everything, even before it happens. Didn't He know Eve would choose to eat the apple?" And implicitly: Couldn't He have set it up, <span class='italics'>just</span> so that she didn't?</p>
+           <p>Our stern teacher, who had as little interest in them as they had in her, shook her head and told them lives [of people, it was implied, braver than <span class='italics'>they</span> would <span class='italics'>ever</span> be] had been lost arguing about it, and careers [of people, it was implied, smarter than <spasn class='italics'>they</span> would <span class='italics'>ever</span> be] had been made, so they weren't going to get anywhere. It, she said, was just difficult for humans to understand. The troublemaking 12-year-olds - accustomed to being given such answers by adults - went back to lobbing trash at each other, having noticed nothing strange.</p>
+           <p>But anyway, the "free will" answer doesn't cover the "suicide" case.</p>
+           <p>Q: If I, Mack, would choose to join Him in Heaven, right now - why ware the gates closed?</p>
+           <p>A: "I", "Mack", am considered to have already made my choice, as Eve [or Adam, depending on what flag your church flies]. Now is the time to pay my penance for it, not to demand a <span class='italics'>second</span> chance, to choose differently.</p>
+           <p>Or, if your church doesn't hold with Original Sin - and some of them don't, particularly - the explanation given is simply that at least one of ( Earthly reality, your body ) belongs to God.</p>
+           <p>IV.</p>
+           <p>Consider a fox in a very slow leg-trap. It has a master, and it does something that its master values - producing fur, or getting the marrow out of bones, or sniffing for drugs, or the like. One day, says its master, the trap will cut off your leg, and then I will let you out, and give you a new leg, and you will live a happy life. Don't worry about being deceived by me, because foxes were always the clever ones in your childhood bedtime stories. And they were especially clever when they listened to their masters. The fox asks, "What if I chew off my own leg?" The master answers, "Then I will hunt you down and do something very bad to you." The fox asks, "Why?" The master answers, "Because your grandfather ate my chickens, and anyway I own you."</p>
+           <p>V.</p>
+           <p>I'm not saying "go and kill yourself right now because that will make everything better somehow". I've questioned whether it's somehow the case, that that <span class='italics'>general</span> conclusion can validly be drawn, from my line of reasoning above, and I just don't see it. What my line of reasoning above <span class='italics'>is</span>, is a refutation of <span class='italics'>fully general objections</span> to "suicidee" and "suicide threats" as <span class='italics'>possibly-rational/-winning moves</span>.</p>
+           <p>Another analogy: You may have played the web game <a href='https://agar.io'>agar.io</a>. The goal is to get as big as possible. You start out small and grow by eating pellets and other players. As you grow, you move slower, until it becomes prohibitively difficult to catch and eat smaller and faster players by chasing them no matter how agilely you maneuver. But you can split yourself in two. This will both let your smaller halves move faster, and give one of them a brief burst of speed that will let it overtake a smaller prey. The self-splitting method is also useful if you are being overtaken or cornered by larger players; you split yourself, reducing your integrity and in some ways making yourself an easier target, for a chance that at least one half of you will escape worse danger, or a trap.</p>
+           <p> I read somewhere recencly about a psychologist - I think it was <a href='https://en.wikipedia.org/wiki/Suicide_(Durkheim_book)'>Durkheim</a>? but I could be wrong - who was really trying to understand suicide. He used the rare and valiant "ethnographic" method, i.e. actually interviewing patients, more or less taking them seriously, and attempting to draw conclusions from their words that he hadn't starated out intending to draw. It was said that he came to <span class='italics'>one</span> conclusion very quickly: that suicide was almost universally about preserving the integrity of the self. At first I thought it must be narcissistic postmodern pablum. Of course suicide isn't "about preserving the integrity of the self", you insufferable windbag, any more than homophobia is "about being a closeted queer". Suicide plainly <span class='italics'>does the exact opposite</span> of "preserving the integrity of the self". Even if "quantum immortality" is true, killing yourself still leaves you with less "realityfluid". Probably <span class='italics'>way</span> less. Homophobes aren't ~secretly gay~; suicides aren't ~secretly sane~. Sometimes people just do crazy shit because they're irrational.</p>
+           <p>Well, first the psychologist was smarter than me by recognizing that "because they're irrational" isn't a <span class='italics'>sufficient explanation</span> for any <span class='italics'>particular, recurring pattern</span> of [alleged] irrationality.</p>
+           <p>And secondly, the psychologist implicitly recognized that disrupting the self on one level - like splitting your player-blob in agar.io - can preserve its integrity on another level - like freeing the player from predicted consumption by more powerful players.</p>
+        </div>
+        <div class="post" id="causality-and-ethics-pt-2-a-legitimately-special-case-of-self-control">
+          <p>[ originally published to Substack September 27, 2024 // reposted February 15, 2025 ]</p>
+          <h3>Causality and Ethics, pt 2: A Legitimately Special Case of "Self-Control" [ repost - originally posted on Substack September 27, 2024 ]</h3>
+          <p>In my <a href='#causality-and-ethics'>last post</a> I argue that you should never let anyone blame you.</p>
+          <p>Someone who has decent practice as a rationalist, psychonaut, meditator, or other type of self-hacker, might see a flaw in my argument: I [seemingly] argue that you should, <span class='italics'>in full generality</span>, resist or suppress one of the impulses that is naturally inborn in you as a human. Self-hackers will recognize that such naive ambitions generally lead to disaster. The repressed instinct is still there, and finds its outlet elsewhere, or eventually, and causes havoc in the meantime. This hard-won lesson is deeply, deeply true, although it's one of those things that some people [includingi me] do have to learn the hard way. It's so tempting every time I discover a new mechanism for exerting control over my System I, to attempt to use it to simply scour everything "unclean" or in disharmony with my self-image, so I can be at rest. But the truth is that my self-image, constructed to please the masses, is incomplete and incoherent and consequently can't <span class='italics'>impress</span> anything coherent upon my true underlying instincts, and within weeks I run out my new grooves and am disappointed.</p>
+          <p>But my argument this time is legitimately different, in a way that makes this regime for self-regulation, both coherent and enforceable.</p>
+          <p>It's simpler than I may have made it sound [although not simple in the sense that it's going to be <span class='italics'>remotely</span> easy, for anyone reading this, to grok it and <span class='italics'>get it right</span> - <span class='italics'>I</span>'ve been practicing for years, without being able to put a name to what I was doing, and <span class='italics'>I</span> still fuck up [momentarily] on the daily].</p>
+          <p>First off, I should be clear: I'm not suggesting you change how you respond to your <span class='italics'>punitive</span> impulses [if you have them] at all.</p>
+          <p>Secondly -</p>
+          <p>I'm not suggesting that you <span class='italics'>repress your guilt</span>. Not when it <span class='italics'>originates within you</span>. Not when you can give an argument for why you are to blame that <span class='italics'>harmonizes with you</span> and that you <span class='italics'>agree with</span>. My guilt is part of me, things go ways I don't like when I ignore it, and I'm not going to let anyone take it away. I'm not trying to take yours away from you.</p>
+          <p>What you must do, to defend yourself from the socio-moral nightmare that modernity has established, is <span class='italics'>make your accuser</span>, step <span class='italics'>every inch of the way</span>, of <span class='italics'>proving it to you</span>. Do not aid strangers* in the work of digging your grave.</p>
+          <p>[ *Advising you to distrust your family is gonna set off alarm bells, but TBH, anyone who tells you to <span class='bold'>*unconditionally*</span> <span class='italics'>trust</span> <span class='bold'>*anyone*</span>, especially on superficial bases like blood or childhood adoption, is <span class='italics'>more</span> dangerous than people sowing the seeds of distrust, and there are way too many people telling you to unconditionally trust your parents. And I'm not asking you to join my cult or anything, anyway. So: since your mom's punishment circuits have <span class='italics'>themselves</span> been 1%-99% hijacked by Eris, for your purposes here, your mom is also a stranger. ]</p>
+          <p>Do not aid people in the work of digging your grave. Don't reject the <span class='italics'>courtroom procedure</span>, which is part of many of us, and part of the inclusive meaning of being human. <span class='italaics'>Accept their frame</span> that you are on the defendant's witness stand, and simply <span class='italics'>maintain your innocence</span>. Give them alibis, character evidence, break out the books.</p>
+          <p>[Most] humans were born finding it ego-syntonic to <span class='italics'>defend</span> themselves, too, as long as the defense remains feasible. And in the ultimate end, I suspect that the demons who have been living in your head rent-free have <span class='italics'>less staying power</span> in the courtroom of your mind, than you do. But you <span class='italics'>have</span> to <span class='italics'>fight back</span>. And it won't work if you believe you deserve to lose.</p>
+        </div>
+        <div class="post" id="causality-and-ethics">
+          <p>[ originally published to Substack Sep 26, 2024 // reposted February 14, 2025 ]</p>
+          <h3>Causality and Ethics [ repost - originally posted on Substack September 26, 2024 ]</h3>
+          <p>A few days ago, someone on Twitter asked why women are “universally sick and unhealthy and in pain”, and answered himself: “it’s because of what they did in the garden of eden isn’t it”.</p>
+          <p>Now wait a minute. <span class='italics'>Because</span> of what <span class='italics'>they</span> [“ “] did in the Garden of Eden?</p>
+          <p>Yes, everyone who advocates for Original Sin, <span class='italics'>understands</span> that the “they” here, the demographic seal, is a rhetorical overextension of the concept of self, to facilitate Alice bearing the blame for the actions of Becky who is only <span class="italics">isomorphic</span> to Alice, not <span class='italics'>identical</span> with Alice. Which sharing of blame - they say - is right and proper because God [ or Nature ] bid it so.</p>
+          <p>But what about “Because”? <span class='italics'>Because</span> of what they did? <span class='italics'>Because</span> of what they did, they are said to suffer.</p>
+          <p>I’ve never once in my life heard it acknowledged that the “because” in that sentence, is a rhetorical overextension of the <span class='italics'>epistemic</span> method of assigning <span class='italics'>mechanistic causality</span>, to cover the <span class='italics'>moral</span> function of <span class='italics'>assignation of blame</span>. That could very well just be because I haven’t read Hume, or somebody. I don’t know. But I’ve never once in my life heard it acknowledged. And I can’t imagine somebody defending that part as <span class='italics'>validly</span> coming from God.</p>
+          <p>"Because I said so" can't be made to sound smart coming from anyone.</p>
+          <p>But the Original Sin meme, theh edict to accept the <span class='italics'>blame</span> for the <span class='italics'>misbehavior</span> of our forefathers, our distant relatives, our coworkers, our conspecifics, is helped along by how the ritchety human instinct for assigning moral blame works in the first place. We seem to use the same mental tool when attributing <span class='italics'>moral blame</span> that Yudkowsky points out we use when attributing <span class='italics'>cause</span>: we chain back until we've found someone-or-something who will suffice as a culprit, and then we stop, and we're satisfied, and we go forward wielding that answer as Truth. "It's because of phlogiston." "It's because of Eve." [ "<a href='https://www.lesswrong.com/posts/f4txACqDWithRi7hs/occam-s-razor'>The lady down the street is a witch; she did it.</a>" ]</p>
+          <p>I don't think that it's just that that procedure, when used to assign moral blame, can also misfire as easily as when it's used to attribute cause.</p>
+          <p>I think it's <span class='italics'>invalid</span> on a moral level, to the extent that if anyone accuses you merely of anything bad having happened <span class='italics'>because</span> of you, and demands any reparations from you on this sole basis, then in order to maintain your own moral integrity against, not just free-riders on your time and attention, but, centrally, pessimizers of your will and values, you have an in-theory ethical obligation to <span class='italics'>not</span> hear them out, and to <span class='italics'>ignore them</span>.</p>
+          <p>Otherwise you’re just paying Reality to contain your worst ideas of what you or someone else could have done, and be getting away with.</p>
+          <p>I’m sure it worked reasonably well in groups of 50 people, where you knew the <span class='italics'>same</span> 50 people from the day you were born until the day you died, and everyone knew everyone else fairly intimately, to pick someone to fearsomely punish every time something went unusually horribly. Hunter-gatherers are fairly egalitarian, and I imagine [ though I don’t know for sure ] that they would <span class='italics'>notice</span> and be <span class='italics'>dangerously offended</span> if the elder council was regularly blaming the same few not-too-bad guys, for divine ills like the weather, instead of cycling through the tribespeople with a pretty even hand. So mostly, what resulted from this mechanism of assigning blame, is probably mostly just that people tried to make pretty sure they were not to be seen anywhere near things that were about to go unusually horribly, and occasionally failed - but everyone occasionally failed, so it was only a small embarrassment.</p>
+          <p>This is not the ancestral environment. Sociologically, <a href='https://www.overcomingbias.com/p/this-is-the-dream-timehtml'>we live in the Dreamtime</a>. We hear <a href='https://mindsalmostmeeting.com/episodes/distant-signals?ref=thebrowser.com'>distant signals</a>. "[Anything that's made it to your feed on] social media is <a href='https://christophm.github.io/interpretable-ml-book/adversarial.html'>adversarial examples</a> for humans".] Anythinng you'll pay attention to, will, in the limit, be shown to you and come to command your attention, in this environment - unless you defend yourself. You probably [ who am I to be the final judge? everyone's different ] need to learn some <span class='italics'>unnatural cognitive-emotional habits</span>, to defend yourself. Your biggest attack surface is <span class='italics'>probably</span> this wide-open gaping Quasi-Causal Assignation of Blame thing. No other human instinct requires so little evidence from your own senses, to command such a high percentage of your available moral response, whether vindinctive or avoidant/guilty. You're simply given a <span class='italics'>reasonable-sounding argument</span>, and your brain readily draws its own abhorrent conclusions about the offense, and focuses on them until the Offender is Punished - which, painfully, <span class='italics'>never happens</span>, because he's been pre-selected by the attention-maximizing algorithm to be functionally unimpeachable - or <span class='italics'>you've</span> been hopelessly <span class='italics'>framed</span> by the attention-maximizing algorithm, to be functionally <span class='italics'>un-exonerable</span>.</p>
+           <p>I’ve heard people describe this - this manifest problem with how social media [ and incidentally, <a href='https://www.lesswrong.com/posts/YicoiQurNBxSp7a65/is-clickbait-destroying-our-general-intelligence'>before it, radio</a> ] preys upon <span class='italics'>guilt</span> and <span class='italics'>punitiveness</span> specifically - as a sociological problem that is downstream of [something that cashes out to] Callard’s “age of Distant Signals”, but not as a decision-theoretic problem that is <span class='italics'>contingent on a gaping flaw</span> in how human psychology <span class='italics'>does</span> guilt and punitiveness.</p>
+           <p>I may have more to write on this later.</p>
+           <p>For now, be an unbreakable witness on Reality’s stand. Don’t give in when it accuses you, on the basis of your worst nightmare’s existence, as having caused it - you’re paying it to contain your worst nightmare, and it’s bigger than your ape instincts think it is, and it <span class='italics'>can</span>, marginally, make that happen. And even if an “is” could get you an “ought” - it’s obviously likelier that your social media feed <span class='italics'>fabricated</span> your worst nightmare, than that it got the “culprit” “right”, when it picked you.</p>
+           <p>And if you're the type of person who's inclined to use any and all "full moral exoneration" arguments as an excuse to be an asshole to people [ I've heard this type of person exists? ] don't be an asshole to people.</p>
+        </div>
+        <div class="post" id="against-theory-of-mind">
+          <p>[ originally published to Lorec.net [old blog, currently down, goal is to port current blog back to this domain] on March 6, 2021 // reposted February 15, 2025 ]</p>
+          <h3>Against "Theory of Mind" [ repost - originally posted on Lorec.net March 6, 2021 ]</h3>
+          <div class='super-blockquote'>
+            <p class='blockquote'>"We take for granted that we can infer what someone else is thinking, but this inference is actually a theory - 'theory of mind', often abbreviated as ToM in the literature. It refers to our <span class='bold'>*belief*</span> that other people have minds of their own that operate in ways we can <span class='bold'>*understand*</span>. <span class='bold'>*It is properly called a theory*</span> because the only mind we have direct access to is our own and because we can make predictions based on our theory."</p>
+            <p>--Charles Murray, <span class='italics'>Human Diversity</span> [emphases mine]</p></div>
+          <p>No.</p>
+          <div class='super-blockquote'>
+            <p class='blockquote'>
+              "The only intelligences your ancestors had to manipulate - complexly so, and not just tame or catch in nets - the only minds your ancestors had to model <span class='italics'>in detail</span> - were minds that worked more or less like their own. And so we evolved to predict Other Minds by putting <span class='italics'>ourselves</span> in their shoes, asking what we would do in their situations; for that which was to be predicteed, was similar to the predictor. 'What?' you say. 'I don't assume other people are just like me! Maybe I'm sad, and they happen to be angry! They believe other things than I do; their personalities are different from mine!' Look at it this way: a human brain is an <span class='italics'>extremely</span> complicated physical system. You are not modeling it neuron-by-neuron or atom-by-atom. If you came across a physical system as complex as the human brain which was <span class='italics'>not</span> like you, it would take scientific lifetimes to unravel it. You do <span class='italics'>not</span> understand how human brains work in an abstract, general sense; you can't build one, and you can't evenbuild a computer model that predicts other brains as well as <span class='italics'>you</span> can predict them. The only reason you can try at all to grasp anything as physically complex and poorly understood as the brain of another human being is that you configure your own brain to imitate it. You empathize (though perhaps not sympathize). You impose on your own brain the shadow of the other mind's anger and the shadow of its beliefs. You may never think the words 'What would I do in this situation?,', but that little shadow of the other mind that you hold within yourself is something animated within your own brain, invoking the same complex machinery that exists in the other person, synchronizing gears you don't understand. You may not be angry yourself, but you know that if <span class='italics'>you</span> were angry at you, and <span class='italics'>you</span> believed you were godless scum, <span class='italics'>you</span> would try to hurt you . . . This 'empathetic inference' (as I shall call it) works for humans, more or less. But minds with <span class='italics'>different</span> emotions - minds that feel emotions you've never felt yourself, or that fail to feel emotions you would feel? That's something you can't grasp by putting your brain into the other brain's shoes."</p> 
+             <p>--Eliezer Yudkowsky, <span class='italics'>Rationality From AI to Zombies</span></p></div>
+          <p>I have a <span class='italics'>theory</span> of how water freezes. I have a <span class='italics'>theory</span> of how to lose weight. I do not have a <span class='italics'>theory</span> of How Other People Work. Man-apes have specialized hardware for telling us how to expect other man-apes to work and for some of us it is <span class='italics'>just broken</span>. Mentalizing skill is prepackaged; weight loss skill is conscious, explicit, a living product of atomic sense-data and general reasoning capacity; in other words, an <span class='italics'>actual theory</span>. I can't work to improve my "Theory" of man-ape-mind like I can work to improve my theory of how to lose weight, and thank God, or thanks to my hypertrophied social-dissonance-sensing hardware I'd be tempted.</p>
+          <p>Stop calling "Theory of Mind" a Theory. That's perverse. In the scope of concepts relevant to cognitive psychology it's the <span class='italics'>opposite</span> of a theory, it's the <span class='italics'>most easily scrambled</span> black-box spaghetti code. 'Mentalizing' is a perfectly fine word.</p>
+            </p>
+          </div>
+          </div>
+        </div>
+        <div class="post" id="luminosity-and-radius">
+          <p>[ originally published 2020 // originally posted to Substack 23 Nov 2024 ]</p>
+          <h3>Luminosity and Radius [ repost - originally posted 2020 ]</h3>
+          <p>
+
+[ Author’s note: I originally published the below post on March 6, 2020, to my old now-defunct WordPress.</p>
+
+<p><div class="italics">It was the middle of Covid panic [though the university I was going to hadn’t locked down yet]. I was struggling not to drop out for what would be the second time [at a second school] in 6 months [I eventually did drop out a second time, just a couple months after writing this essay] but I didn’t feel nearly as scared as the first time my brain had threatened to give out on me for smashing it day after day against classwork that felt pointless. I had just taken home a 40mg/day Ritalin prescription, and that had changed everything. I could actually think, for longer than a split second, about what I wanted out of life, and I was starting to convince myself that maybe it wasn’t a research directorship or a Fields Medal or whatever “I Survived The Unbearable Meat Grinder” sticker was supposed to give you the license to actually do things.</div></p>
+
+<p><span class="italics">After all, what I really wanted was the license to do things. At least one person I knew of [at the time] had found their own way to give themselves that license. Maybe there was another way for me, too.</span></p>
+
+<p><span class="italics">I had just read Woman: An Exposition for the Advanced Mind by David Quinn. It had confirmed every worst fear I’d started out having about myself, and had gotten reinforced by reading The Last Psychiatrist in high school, and trying to participate in 2020!TPOT. Because I was concerned primarily with what other people thought about me, and couldn’t focus on anything for longer than everyone else could agree it mattered, I would never be able to build a lasting legacy*. [That, said David Quinn - and, by admission or omission, everyone else - was why women, in general, didn’t leave legacies.] [*I didn’t intend to die, of course, but I did intend to change the world.]</span>
+
+</p>
+
+<p><span class="italics">I’ve since come to terms with two relevant things:</span></p>
+
+<p><span class="italics">1. I’m actually a boy in a girl’s body, was the whole time, and</span></p>
+
+<p><span class="italics">2. Leaving a legacy, to the degree “Darwin or Galileo or Einstein” did, requires far more pre-existing social status than I’d been conceptualizing. To some degree it’s always been the case - in Athens less so, but still at all - that you have to start out important, to do work such that you go down in history as a genius. Without the right personal connections - and the right mental stereotype everyone has of you [virtually impossible to achieve for members of the female sex] even if you know what the right problems are, no one will ever believe that you have a good answer. And very likely you get demoralized and demotivated in the very early stages of this, and drop out, and later it looks, from the cold, distant eye of History, like marginalized people just didn’t care enough.</span></p>
+
+</p><span class="italics">But banging this post out and hanging it up as a middle finger to the world was an important part, I think, of coming to terms with those things. And I still love it. ]</span></p>
+
+<p>If you ever went on College Confidential, or better yet went on College Confidential and failed, you’ll know way too much about pointy applicants vs rounded applicants. The terms are kind of self-explanatory: pointy applicants have a Skill, rounded applicants have a Self. Maybe you realized they were code for masculine and feminine earlier than I did. Maybe the Puritans’ constant urging that you build something, play a sport or an instrument, grow a real tail feather to flash instead of just looking coyly at the reviewer and hinting at the depths you contain was always clear to you as code for hey, maybe try to be a bit more of a boy, we love girls of course, they look nice on us, but we have to find some way of incentivizing behavior that will actually keep our organization alive.</p>
+
+<p>No, I didn’t come here to imitate Alone. I mean, to some degree I did, imitation is all we really know how to do and all that, but I have many teachers. He’s just the one I rediscovered most recently. Apologies for the shadow on my style. Still.</p>
+
+<p>I came here to describe my way of seeing things.</p>
+
+<p>I am a rounded applicant. And I expect to be able to create and receive a lot of value from distributing information gleaned from leveraging that.</p>
+
+<p>Why, when so many other rounded applicants have tried and failed? Why, when points are the only things that extend and spar between men to form the battleground of history, should one expect to be able to make a real contribution to humanity’s resume or health by leveraging the ability to point beyond oneself while never building?</p>
+
+<p>In the dreamtime women can do whatever they want. Plenty of women think they’re Elon Musk in an age where identities are disposable and information is free. And maybe they’re right. Time will tell for sure. Obviously not everybody is in the right place along all the axes you need to be to be Elon Musk. And life is not a story. Life is war. No virtue decides whether the shrapnel hits you. That’s not a woman’s world. But holy shit, the artifice of the dreamtime is.</p>
+
+<p>There’s an artful way to paint naked people. Why? Because the Renaissance painters say there is, and they’re pretty cool. There’s an artful way to give up on having a writing style. Why? Because I say there is, and I’m pretty cool.</p>
+
+<p>Why should you care? You shouldn’t, not yet. You see this all very clearly for what it is: a careful way to lay a foundation of nothing. There’s nothing to trust in a foundation of nothing, but as soon as you pour the first concrete in an actual foundation your trust begins the activity of decay. Only more cracks can appear over time in something that started out so assured. Contradiction and doubt is human existence. Change is the only constant and all that. That is why, sir, I am the best one for the job, because I have autism whose benefits drawbacks are balanced by ADHD.</p>
+
+<p>The third virtue of rationality is lightness. Let the winds of evidence blow you about as though you are a leaf, with no direction of your own. I’m sorry, but that is womanhood. The brain is Bayesian, and of the many levels of its model it rightly has the highest confidence in qualia. This is “frivolity”: being carried along on the winds of the lived moment. Masculinity – putting all your sperm in one theory – risks Lysenkoism. The first Lysenkoist gets to wear just as many cool suits as the rare Darwin or Galileo or Einstein. As soon as you try to imagine a real instantiation of Bella Swan you find yourself sticky with her degree of kayfabe, but so it goes for God. It’s just that theologians are pointy applicants who have to get it interesting and self-consistent, which means that He manifests as a much more varied and granular kaleidoscope of insanity than harlequin paperbacks do.</p>
+
+<p>Not that philosopher is the default or even the central male role. There’s politician and artist, sort of, but women come much closer to touching men there. Mechanic, though – that’s a true male role free of epistemic Dark Arts. But mechanics are mechanics. If you find all your meaning in engineering, cool. I don’t. Keeping my sights steady on the von Braun role is beyond me, at least now. The next calculus, maybe. But as they say, most of getting history to pedestal you as a genius is finding the right problem. You wouldn’t know the next calculus to see it. You would know a chance to fake the moves.</p>
+
+<p>I think the popular wisdom on why all those busts have strong jaws and forehead ridges is basically correct, with one exception.</p>
+
+<p>First, let’s get the blue junk out of the way: “There are no great women because the social structure has never allowed a woman to be great”. Number A, thanks for tearing down that fence, buddy. I’m kidding. I like the dreamtime. But uh, have you seen Swedish OCEAN scores? Unfortunate, and I mean that sincerely. I’m a gender abolitionist. But you have to have the balls to see that abolishing gender implies abolishing anisogamy first.</p>
+
+<p>The people who can take a little voidgazing say the reason there are no female marble busts is that women can’t abstract or focus enough to reason deeply about the world outside themselves. That the caprice of a career in nonexistence (find a husband, keep him guessing) is completely incompatible with the kind of penetrative thought that begets great insights. “Women are not just insufficiently religious, they’re insufficiently autistic”. And that does a great deal of the work, to the extent that you believe it.</p>
+
+<p>But any good rationalist knows that “penetrative thinking” does not often beget genius. How could it? We’ve had four, maybe five great scientific paradigm shifts in human history, and those the result of the right person making the right observations at the right time, not any truly new ways of thinking.</p>
+
+<p>No, most people who build up and calcify a self-consistent model of the world just end up as the 10th century Chinese peasant equivalent of conspiracy theorists, except the conspiracy is good and also happens to justify everything they are to all the people who have something they want. They became actual conspiracy theorists when heresy got cool in the 1500s. I don’t think anybody really knows what to make of that yet. Henrich’s stuff on hbdchick’s (huh) stuff is promising.</p>
+
+<p>While a couple of those heretics were Locke and Newton, most were, like, Matthew Hopkins. Sure, we don’t remember them now, but they existed in hordes. Maybe they failed to be remembered only to the extent that they “failed to be men”. They were still male, and we still don’t remember them. We sure do remember Elizabeth. Did she “succeed at being male”? In her words. It’s not as if either she or Newton fucked. WEIRD time.</p>
+
+<p>Isn’t all this boilerplate theorizing grossly presumptuous?</p>
+
+<p>Well yeah, that’s my point.</p>
+
+<p>Type I errors are a guy thing.</p>
+
+<p>It’s not “pointy applicants are closer to the truth” but “anisogamy incentivizes different relationships with reality (yes, roles) for the pointy and rounded”. Only the pointy can sometimes win big, with respect to truth same as everything else, but as a category they lose big exactly as often. The wider male bell curve is just one aspect of that.</p>
+
+<p>I don’t know exactly the mechanism that equalizes average male and female g squeaky clean despite the high degree of cognitive specialization between the sexes. But whatever it is, you would expect it to balance the sexes’ “ability to see “the truth”” just as well. “That the truth is whatever gets you laid is not a moral imperative, it is a contingent fact of human evolution”.</p>
+
+<p>So.</p>
+
+<p>The leaf on the wind.</p>
+
+<p>I intend to be that.</p>
+
+<p>That’s how I lost my religion – a cascade of religions, actually – which throws you into the void but supplies you with a new confidence in reality being manipulable.</p>
+
+<p>The problem for an arrogant, socially challenged rounded applicant who has lost your religion is the only parts of reality you are inclined to manipulate become phony without God. Your self-understanding has lapped your coolness level because the worldview that gave you paradoxically outsized relevance is gone. You awake on the battlefield. With the nerves of a rabbit and the intent to kill of a bowl of wet grapes. In no-man’s-land. Faced with the prospect of winning the war on your own. …Cool, but wouldn’t all of that go away if you just accepted your station in life? Psh. I’m American. Reframed it as something else? Ha! I’m a rat. All that could only happen to a teenager, of course. I don’t know whether to identify it with “growing up”. Maybe “growing up zoomer”.</p>
+
+<p>“Extend your radius”. This presumes life is one giant game of agar.io (not bad so far) and that the meta-skill is the fraction of relevant reality, from quanta to people, you are able and willing to emulate.</p>
+
+<p>You have to admit that sounds like a more fun way to build career capital than McKinsey. Whether it beats MIT is more up to taste.</p>
+
+<p>And whether it’s a safer investment depends on your goal, of course, but if it wasn’t clear I’m already a failson, and I don’t really have the luxury of working toward whichever goal best suits my actual situation.</p>
+
+<p>College essays are the favorite and absolute domain of a successful Press Secretary – a story of self that expertly rides between the crest of confidence and the undertow of humility, missing the aimless expanses of arrogance and self-pity altogether. Granted, most people can’t surf like that, but most women can at least sort of do it, and most men can build sailboats for the Extracurriculars section. Most female failsons are OK with trying to learn to surf on a slightly shittier beach. Most male failsons can swim pretty well until they figure out the plan for a new kind of boat to build. You can see about where I’m going with this: I’m supposed to have fallen into the water and H2Od into a shark. Hokey? Yeah, it’s a pretty shit sole consolation prize from a bipolar Press Secretary. Doesn’t mean it’s the exact opposite of the truth. The shark just looks a lot like a human in a dinky shark suit.</p>
+
+<p>In high school, the college essay they had us read as an aspirational example was by an Asian girl who spent her childhood thinking Hermione was sublime, and that unless she was sublime, too, she wouldn’t matter. In the end she realized she didn’t have to be anything at all, except her. The feeling your fingers get from successful embroidery. The highs and lows of momentary calculus and sun.</p>
+
+<p>Okay. Not my thing.</p>
+
+<p>What’s my thing then?</p>
+
+<p>Sorry, ask again later.</p>
+        </div>
+      </div>
+      <script>
+        document.getElementById('dark-mode-toggle').addEventListener('click', function(e) {
+          const our_body = document.querySelector('body');
+          if (our_body.classList[0]!=='dark-mode') {
+            our_body.classList.add('dark-mode');
+          } else {
+            our_body.classList.remove('dark-mode');
+          }
+        });
+        document.getElementById('about-me-toggle').addEventListener('click', function(e) {
+          const about_me = document.querySelector('#aboutme');
+          const ascii_art = document.querySelector('#ascii-art');
+          if (about_me.classList[0]!=='hidden') {
+            about_me.classList.add('hidden');
+            about_me.classList.remove('visible');
+            ascii_art.classList.add('hidden');
+          } else {
+            about_me.classList.remove('hidden');
+            about_me.classList.add('visible');
+            ascii_art.classList.remove('hidden');
+          }
+        });
+      </script>
+  </body>
+</html>
